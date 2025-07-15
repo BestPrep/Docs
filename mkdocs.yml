@@ -4,3 +4,5 @@ nav:
 
 theme:
   name: material
+docs_dir: content
+site_dir: docs
