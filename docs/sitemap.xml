@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://yourusername.github.io/bestprep-docs/</loc>
+         <loc>https://bestprep.github.io/Docs/</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/mentoring/</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/mentoring_apex/</loc>
+         <lastmod>2025-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/mentoring_js/</loc>
          <lastmod>2025-07-15</lastmod>
     </url>
 </urlset>
