@@ -1,8 +1,65 @@
+# Site Information
 site_name: BestPrep Docs
-nav:
-  - Home: index.md
+site_url: https://bestprep.github.io/Docs/
 
+
+# Navigation
+nav:
+  - Home: index.md 
+  - Mentoring:
+    - Overview: mentoring.md
+    - Code:
+      - Apex: mentoring_apex.md
+      - JavaScript: mentoring_js.md
+
+
+
+
+# Theme
 theme:
   name: material
-docs_dir: content
-site_dir: docs
+  custom_dir: overrides
+  logo: images/footer-logo.png
+  favicon: images/favicon.ico
+  features:
+    - navigation.top
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: orange
+    - scheme: slate
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+# Define custom folders
+docs_dir: content     # Where you write your markdown
+site_dir: docs        # Where built site will go (for GitHub Pages)
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://bestprep.org
+      name: BestPrep Website
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/BestPrepMN
+      name: BestPrep's Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/bestprep/
+      name: BestPrep's linkedIn 
+    - icon: fontawesome/brands/github
+      link: https://www.github.com/bestprep
+      name: BestPrep's Github 
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/bestprep
+      name: BestPrep's Facebook 
+
+plugins:
+  - search

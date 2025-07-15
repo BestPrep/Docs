@@ -1,4 +1,4 @@
-# Welcome to BestPrep's Documentation Site
+# Home
 
 Welcome to BestPrep's Salesforce Documentation site. Please reference any projects in this system before making changes on the actual Salesforce site. 
 
