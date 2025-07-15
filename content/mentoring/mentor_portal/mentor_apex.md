@@ -1,6 +1,6 @@
 # Mentoring Sites - Apex Code
 
-Every single 
+The Apex code file is what gives our JavaScript files the information they need. MentoringMentorPortal.cls is the primary file, but it also uses a helper class for submitting files.
 
 ## MentoringMentorPortal.cls
 
@@ -264,4 +264,49 @@ global without sharing class MentoringMentorPortal {
         update c;
     }
 }
+```
+---
+## FileAttachQueueable.cls
+
+```java
+public class FileAttachQueueable implements Queueable {
+
+    private Id msgId;
+
+    public FileAttachQueueable(Id msgId) {
+        this.msgId = msgId;
+    }
+
+    public void execute(QueueableContext context) {
+        try {
+            Message__c msg = [SELECT Id FROM Message__c WHERE Id = :msgId LIMIT 1];
+            msg.Link_to_File_Attached__c = 'Attachment Processing';
+            update msg;
+        } catch (Exception e) {
+            System.debug('FileAttachQueueable failed: ' + e.getMessage());
+        }
+    }
+}
+```
+---
+## Metadata
+
+Each file needs its own separate metadata file as well. However, they are identical other than the naming. 
+
+MentoringMentorPortal.cls-meta.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
+```
+
+FileAttachQueueable.cls-meta.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
 ```

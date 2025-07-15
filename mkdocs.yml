@@ -5,12 +5,34 @@ site_url: https://bestprep.github.io/Docs/
 
 # Navigation
 nav:
-  - Home: index.md 
+  - Home: index.md
   - Mentoring:
-    - Overview: mentoring.md
-    - Code:
-      - Apex: mentoring_apex.md
-      - JavaScript: mentoring_js.md
+    - Overview: mentoring/mentoring.md
+    - What is Apex: mentoring/apex.md
+    - Reports: mentoring/reports.md
+    - Portals:
+      - Mentor Portal:
+        - Overview: mentoring/mentor_portal/mentor_portal.md
+        - Apex: mentoring/mentor_portal/mentor_apex.md
+        - JavaScript: mentoring/mentor_portal/mentor_js.md
+        - HTML & CSS: mentoring/mentor_portal/mentor_web.md
+      - Student Portal:
+        - Overview: mentoring/student_portal/student_portal.md
+        - Apex: mentoring/student_portal/student_apex.md
+        - JavaScript: mentoring/student_portal/student_js.md
+      - Overview Portal:
+        - Overview: mentoring/overivew_portal/overview_portal.md
+        - Apex: mentoring/overivew_portal/overview_apex.md
+        - JavaScript: mentoring/overivew_portal/overview_js.md
+    - Systems:
+      - Flagging System:
+        - Overview: mentoring/flagging_system/flagging_system.md
+        - Making Updates: mentoring/flagging_system/making_updates.md
+        - Code: mentoring/flagging_system/flagging_code.md
+      - Email System:
+        - Notifications: mentoring/email_system/notification_email.md
+        - Weekly Emails: mentoring/email_system/weekly_email.md
+
 
 
 
@@ -63,3 +85,9 @@ extra:
 
 plugins:
   - search
+
+markdown_extensions:
+  - attr_list
+
+extra_javascript:
+  - https://www.jsdelivr.com/package/npm/mermaid

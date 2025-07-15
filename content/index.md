@@ -1,21 +1,64 @@
-# Welcome to BestPrep's Documentation Site
+# Welcome to BestPrep's Salesforce Documentation
 
-Welcome to BestPrep's Salesforce Documentation site. Please reference any projects in this system before making changes on the actual Salesforce site. 
+This site is your central hub for understanding how BestPrep uses Salesforce to manage mentoring programs, communications, student connections, and reporting.
 
-Commonly requested links:
+Whether you're a program manager, support staff, developer, or occasional admin, you'll find everything here you need to work confidently within our Salesforce system.
 
-## Commands
+---
 
-![Footer Logo](images/footer-logo.png)
+## Purpose of This Site
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- Provide **clear documentation** on how our custom Salesforce setup works
+- Share **step-by-step guides** for common tasks and internal tools
+- Centralize **reference material** for fields, objects, flows, and automations
+- Help new staff get oriented quickly with **onboarding resources**
 
-## Project layout
+---
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Structure of Our Salesforce System
+
+BestPrep’s Salesforce environment supports programs like:
+
+- **eMentors**
+- **Cloud Coach**
+- **Stock Market Game**
+- **Volunteer Management**
+- **Donor and Sponsor Tracking**
+
+Each program is built around **custom objects**, **flows**, and **automations** tailored to our unique needs. This site explains what each component does — and how to safely make changes.
+
+---
+
+## What You’ll Find Here
+
+### Getting Started
+- Overview of key objects and relationships
+- Logging in, navigating, and searching
+- Understanding our custom record types
+
+### Program-Specific Guides
+- Messaging flow (eMentors & Cloud Coach)
+- Teacher and mentor portals
+- Managing weekly guiding questions
+
+### Admin + Dev Docs
+- Field reference by object
+- Apex classes and triggers
+- Flow logic and scheduled jobs
+- Change log and deployment tips
+
+---
+
+## Common Entry Points
+
+- [Messaging Process Overview](mentoring/mentoring.md)
+
+---
+
+## Need Help?
+
+For questions or suggested updates, contact **Tovin Sannes-Venhuizen** or email `salesforce-support@bestprep.org`.
+
+---
+
+> _BestPrep's mission is to connect students with business professionals. This system helps us do that reliably, at scale, and with heart._
