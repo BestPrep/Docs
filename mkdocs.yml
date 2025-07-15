@@ -1,46 +1,37 @@
-# Site Information
 site_name: BestPrep Docs
 site_url: https://bestprep.github.io/Docs/
 
-
-# Navigation
 nav:
   - Home: index.md
   - Mentoring:
-    - Overview: mentoring/mentoring.md
-    - What is Apex: mentoring/apex.md
-    - Reports: mentoring/reports.md
-    - Portals:
-      - Mentor Portal:
-        - Overview: mentoring/mentor_portal/mentor_portal.md
-        - Apex: mentoring/mentor_portal/mentor_apex.md
-        - JavaScript: mentoring/mentor_portal/mentor_js.md
-        - HTML & CSS: mentoring/mentor_portal/mentor_web.md
-      - Student Portal:
-        - Overview: mentoring/student_portal/student_portal.md
-        - Apex: mentoring/student_portal/student_apex.md
-        - JavaScript: mentoring/student_portal/student_js.md
-      - Overview Portal:
-        - Overview: mentoring/overivew_portal/overview_portal.md
-        - Apex: mentoring/overivew_portal/overview_apex.md
-        - JavaScript: mentoring/overivew_portal/overview_js.md
-    - Systems:
-      - Flagging System:
-        - Overview: mentoring/flagging_system/flagging_system.md
-        - Making Updates: mentoring/flagging_system/making_updates.md
-        - Code: mentoring/flagging_system/flagging_code.md
-      - Email System:
-        - Notifications: mentoring/email_system/notification_email.md
-        - Weekly Emails: mentoring/email_system/weekly_email.md
+      - Overview: mentoring/mentoring.md
+      - What is Apex: mentoring/apex.md
+      - Reports: mentoring/reports.md
+      - Portals:
+          - Mentor Portal:
+              - Overview: mentoring/mentor_portal/mentor_portal.md
+              - Apex: mentoring/mentor_portal/mentor_apex.md
+              - JavaScript: mentoring/mentor_portal/mentor_js.md
+              - HTML & CSS: mentoring/mentor_portal/mentor_web.md
+          - Student Portal:
+              - Overview: mentoring/student_portal/student_portal.md
+              - Apex: mentoring/student_portal/student_apex.md
+              - JavaScript: mentoring/student_portal/student_js.md
+          - Overview Portal:
+              - Overview: mentoring/overview_portal/overview_portal.md
+              - Apex: mentoring/overview_portal/overview_apex.md
+              - JavaScript: mentoring/overview_portal/overview_js.md
+      - Systems:
+          - Flagging System:
+              - Overview: mentoring/flagging_system/flagging_system.md
+              - Making Updates: mentoring/flagging_system/making_updates.md
+              - Code: mentoring/flagging_system/flagging_code.md
+          - Email System:
+              - Notifications: mentoring/email_system/notification_email.md
+              - Weekly Emails: mentoring/email_system/weekly_email.md
 
-
-
-
-
-# Theme
 theme:
   name: material
-  custom_dir: overrides
   logo: images/footer-logo.png
   favicon: images/favicon.ico
   features:
@@ -61,9 +52,8 @@ theme:
         icon: material/weather-night
         name: Switch to dark mode
 
-# Define custom folders
-docs_dir: content     # Where you write your markdown
-site_dir: docs        # Where built site will go (for GitHub Pages)
+docs_dir: content
+site_dir: docs
 
 extra:
   social:
@@ -75,19 +65,27 @@ extra:
       name: BestPrep's Twitter
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/bestprep/
-      name: BestPrep's linkedIn 
+      name: BestPrep's LinkedIn
     - icon: fontawesome/brands/github
       link: https://www.github.com/bestprep
-      name: BestPrep's Github 
+      name: BestPrep's GitHub
     - icon: fontawesome/brands/facebook
       link: https://www.facebook.com/bestprep
-      name: BestPrep's Facebook 
+      name: BestPrep's Facebook
 
 plugins:
   - search
-
+  
 markdown_extensions:
   - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+
+extra_css:
+  - css/custom.css
 
 extra_javascript:
-  - https://www.jsdelivr.com/package/npm/mermaid
+  - https://unpkg.com/mermaid@10.9.3/dist/mermaid.min.js
+  - js/mermaid-init.js

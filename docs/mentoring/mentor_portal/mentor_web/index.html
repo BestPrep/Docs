@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -825,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overivew_portal/overview_portal.md" class="md-nav__link">
+      <a href="../../overview_portal/overview_portal/" class="md-nav__link">
         
   
   
@@ -848,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overivew_portal/overview_apex.md" class="md-nav__link">
+      <a href="../../overview_portal/overview_apex/" class="md-nav__link">
         
   
   
@@ -871,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overivew_portal/overview_js.md" class="md-nav__link">
+      <a href="../../overview_portal/overview_js/" class="md-nav__link">
         
   
   
@@ -1235,661 +1237,661 @@
 <h1 id="mentoring-sites-html-css">Mentoring Sites - HTML &amp; CSS</h1>
 <p>Every single webpage has a few different parts. Ours has 4 - the Apex Code (Salesforce), the JavaScript (what talks to Salesforce), the HTML (what we see), and the CSS (the code that tells our computer how to style the HTML). Think of the HTML like the structure of the house, and the CSS like the paint and wallpaper. </p>
 <h2 id="mentorportalhtml">mentorPortal.html</h2>
-<pre><code class="language-html">&lt;template&gt;
-  &lt;!-- Loading Spinner --&gt;
-  &lt;div if:true={isLoading} class=&quot;spinner-wrapper&quot;&gt;
-    &lt;lightning-spinner alternative-text=&quot;Loading&quot; size=&quot;large&quot;&gt;&lt;/lightning-spinner&gt;
-  &lt;/div&gt;
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- Loading Spinner --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isLoading}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;spinner-wrapper&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">lightning-spinner</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;Loading&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;large&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-spinner</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  &lt;!-- Loaded View --&gt;
-  &lt;div if:false={isLoading}&gt;
-    &lt;!-- Access Denied --&gt;
-    &lt;template if:true={accessDenied}&gt;
-      &lt;h1&gt;Access denied. Please check your credentials.&lt;/h1&gt;
-    &lt;/template&gt;
+  <span class="cm">&lt;!-- Loaded View --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isLoading}</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Access Denied --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{accessDenied}</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Access denied. Please check your credentials.<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-    &lt;!-- Main Portal --&gt;
-    &lt;template if:false={accessDenied}&gt;
-      &lt;div class=&quot;container&quot;&gt;
+    <span class="cm">&lt;!-- Main Portal --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{accessDenied}</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
 
-        &lt;!-- Top Button Group --&gt;
-        &lt;div class=&quot;button-group-top&quot;&gt;
-          &lt;div class=&quot;info-button&quot; onclick={openInfoModal}&gt;
-            &lt;lightning-icon icon-name=&quot;utility:info&quot; alternative-text=&quot;More Information&quot; size=&quot;small&quot;&gt;&lt;/lightning-icon&gt;
-          &lt;/div&gt;
-          &lt;div class=&quot;settings-button&quot; onclick={openSettingsModal}&gt;
-            &lt;lightning-icon icon-name=&quot;utility:settings&quot; alternative-text=&quot;Settings&quot; size=&quot;small&quot;&gt;&lt;/lightning-icon&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-
-
-          &lt;template if:true={isEasterEggVisible}&gt;
-            &lt;div class=&quot;easteregg-backdrop&quot;&gt;
-              &lt;div class=&quot;easteregg-wrapper&quot;&gt;
-                &lt;object data={svgUrl} type=&quot;image/svg+xml&quot; class=&quot;easteregg-svg&quot;&gt;&lt;/object&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/template&gt;
+        <span class="cm">&lt;!-- Top Button Group --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button-group-top&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{openInfoModal}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:info&quot;</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;More Information&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;small&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;settings-button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{openSettingsModal}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:settings&quot;</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;Settings&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;small&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
 
+          <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isEasterEggVisible}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;easteregg-backdrop&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;easteregg-wrapper&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">object</span> <span class="na">data</span><span class="o">=</span><span class="s">{svgUrl}</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/svg+xml&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;easteregg-svg&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-        &lt;!-- INFO MODAL --&gt;
-        &lt;template if:true={isInfoOpen}&gt;
-          &lt;section role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal-backdrop&quot; onclick={handleBackdropClick}&gt;
-            &lt;div class=&quot;settings-modal&quot; onclick={stopModalClick}&gt;
-              &lt;div class=&quot;modal-header&quot;&gt;
-                &lt;lightning-icon icon-name=&quot;utility:close&quot; alternative-text=&quot;Close&quot; size=&quot;x-small&quot;
-                  onclick={closeInfoModal} class=&quot;close-icon&quot;&gt;&lt;/lightning-icon&gt;
-              &lt;/div&gt;
-              &lt;div class=&quot;modal-body&quot;&gt;
-                &lt;div class=&quot;info-grid&quot;&gt;
-                  &lt;div class=&quot;info-box&quot;&gt;
-                    &lt;p&gt;&lt;strong&gt;{eventName} Date:&lt;/strong&gt; {eventDate}&lt;/p&gt;
-                    &lt;p&gt;&lt;strong&gt;{eventName} Start Time:&lt;/strong&gt; {eventStartTime}&lt;/p&gt;
-                    &lt;p&gt;&lt;strong&gt;{eventName} End Time:&lt;/strong&gt; {eventEndTime}&lt;/p&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;info-box&quot;&gt;
-                    &lt;p&gt;&lt;strong&gt;{eventName} Address:&lt;/strong&gt; {eventAddress}&lt;/p&gt;
-                    &lt;lightning-map map-markers={mapMarkers} zoom-level=&quot;14&quot; style=&quot;height: 200px;&quot;&gt;&lt;/lightning-map&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;info-box&quot;&gt;
-                    &lt;a href={mentorResourcesUrl} target=&quot;_blank&quot; class=&quot;link-button&quot;&gt;Mentor Resources&lt;/a&gt;&lt;br&gt;
-                    &lt;a href={trainingVideoUrl} target=&quot;_blank&quot; class=&quot;link-button&quot;&gt;Training Video&lt;/a&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;info-box&quot;&gt;
-                    &lt;a href={googleCalUrl} target=&quot;_blank&quot; class=&quot;link-button&quot;&gt;Add to Google Calendar&lt;/a&gt;&lt;br&gt;
-                    &lt;a href={outlookCalUrl} target=&quot;_blank&quot; class=&quot;link-button&quot;&gt;Add to Outlook Calendar&lt;/a&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;modal-footer&quot;&gt;
-                  &lt;a href={bestPrepMailto} class=&quot;link-button&quot;&gt;Contact BestPrep Coordinator&lt;/a&gt;
-                  &lt;a href={companyCoordMailto} class=&quot;link-button&quot;&gt;{contactCompanyCoordinatorLabel}&lt;/a&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/section&gt;
-        &lt;/template&gt;
 
-        &lt;!-- SETTINGS MODAL --&gt;
-        &lt;template if:true={isSettingsOpen}&gt;
-          &lt;section role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal-backdrop&quot; onclick={handleBackdropClick}&gt;
-            &lt;div class=&quot;settings-modal&quot; onclick={stopModalClick}&gt;
-              &lt;div class=&quot;modal-header&quot;&gt;
-                &lt;lightning-icon icon-name=&quot;utility:close&quot; alternative-text=&quot;Close&quot; size=&quot;x-small&quot;
-                  onclick={closeSettingsModal} class=&quot;close-icon&quot;&gt;&lt;/lightning-icon&gt;
-              &lt;/div&gt;
-              &lt;div class=&quot;modal-body&quot;&gt;
-                &lt;h2 style=&quot;text-align: center;&quot;&gt;BestPrep's Mentor Portal Settings&lt;/h2&gt;
-                &lt;div class=&quot;mentor-info&quot;&gt;
-                  &lt;p&gt;&lt;strong&gt;Name:&lt;/strong&gt; {mentorFullName}&lt;/p&gt;
-                  &lt;p&gt;&lt;strong&gt;Company:&lt;/strong&gt; {assignedCompany}&lt;/p&gt;
-                  &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; {connectionData.Mentor_Email__c}&lt;/p&gt;
-                &lt;/div&gt;
 
-                &lt;!-- Track Selection --&gt;
-                &lt;template if:true={isCloudCoach}&gt;
-                  &lt;h3 style=&quot;text-align: center; margin-top: 1.5rem;&quot;&gt;Select Student Track&lt;/h3&gt;
-                  &lt;div class=&quot;track-toggle-row&quot;&gt;
-                    &lt;lightning-button label=&quot;Support Track&quot; variant={supportTrackVariant}
-                      onclick={selectSupportTrack}&gt;&lt;/lightning-button&gt;
-                    &lt;lightning-button label=&quot;Track 1&quot; variant={track1Variant} onclick={selectTrack1}&gt;&lt;/lightning-button&gt;
-                    &lt;lightning-button label=&quot;Track 2&quot; variant={track2Variant} onclick={selectTrack2}&gt;&lt;/lightning-button&gt;
-                    &lt;lightning-button label=&quot;Track 3&quot; variant={track3Variant} onclick={selectTrack3}&gt;&lt;/lightning-button&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;track-description&quot;&gt;
-                    &lt;p&gt;{trackDescription}&lt;/p&gt;
-                  &lt;/div&gt;
-                &lt;/template&gt;
+        <span class="cm">&lt;!-- INFO MODAL --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isInfoOpen}</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">section</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;dialog&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-backdrop&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleBackdropClick}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;settings-modal&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{stopModalClick}</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-header&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:close&quot;</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;Close&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;x-small&quot;</span>
+                  <span class="na">onclick</span><span class="o">=</span><span class="s">{closeInfoModal}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;close-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-body&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-grid&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-box&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{eventName} Date:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {eventDate}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{eventName} Start Time:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {eventStartTime}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{eventName} End Time:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {eventEndTime}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-box&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{eventName} Address:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {eventAddress}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">lightning-map</span> <span class="na">map-markers</span><span class="o">=</span><span class="s">{mapMarkers}</span> <span class="na">zoom-level</span><span class="o">=</span><span class="s">&quot;14&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 200px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-map</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-box&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{mentorResourcesUrl}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>Mentor Resources<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{trainingVideoUrl}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>Training Video<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info-box&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{googleCalUrl}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>Add to Google Calendar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{outlookCalUrl}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>Add to Outlook Calendar<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-footer&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{bestPrepMailto}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>Contact BestPrep Coordinator<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{companyCoordMailto}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;link-button&quot;</span><span class="p">&gt;</span>{contactCompanyCoordinatorLabel}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-                &lt;!-- Week Availability --&gt;
-                &lt;h3 style=&quot;text-align: center; margin-top: 1.5rem;&quot;&gt;Set Out of Office&lt;/h3&gt;
-                &lt;div class=&quot;weeks-container two-column&quot;&gt;
-                  &lt;div class=&quot;week-column&quot;&gt;
-                    &lt;template for:each={weekListLeft} for:item=&quot;week&quot;&gt;
-                      &lt;div key={week.label} class=&quot;week-option&quot;&gt;
-                        &lt;lightning-input type=&quot;checkbox&quot; label={week.label} name={week.name} checked={week.checked}
-                          onchange={handleWeekToggle}&gt;&lt;/lightning-input&gt;
-                      &lt;/div&gt;
-                    &lt;/template&gt;
-                  &lt;/div&gt;
-                  &lt;div class=&quot;week-column&quot;&gt;
-                    &lt;template for:each={weekListRight} for:item=&quot;week&quot;&gt;
-                      &lt;div key={week.label} class=&quot;week-option&quot;&gt;
-                        &lt;lightning-input type=&quot;checkbox&quot; label={week.label} name={week.name} checked={week.checked}
-                          onchange={handleWeekToggle}&gt;&lt;/lightning-input&gt;
-                      &lt;/div&gt;
-                    &lt;/template&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
+        <span class="cm">&lt;!-- SETTINGS MODAL --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isSettingsOpen}</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">section</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;dialog&quot;</span> <span class="na">tabindex</span><span class="o">=</span><span class="s">&quot;-1&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-backdrop&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleBackdropClick}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;settings-modal&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{stopModalClick}</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-header&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:close&quot;</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;Close&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;x-small&quot;</span>
+                  <span class="na">onclick</span><span class="o">=</span><span class="s">{closeSettingsModal}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;close-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-body&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center;&quot;</span><span class="p">&gt;</span>BestPrep&#39;s Mentor Portal Settings<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mentor-info&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Name:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {mentorFullName}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Company:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {assignedCompany}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {connectionData.Mentor_Email__c}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-                &lt;div class=&quot;modal-footer&quot;&gt;
-                  &lt;lightning-button variant=&quot;brand&quot; label=&quot;Update Settings&quot;
-                    onclick={handleUpdateSettings}&gt;&lt;/lightning-button&gt;
-                  &lt;lightning-button variant=&quot;neutral&quot; label=&quot;Report an Error&quot;
-                    onclick={handleReportError}&gt;&lt;/lightning-button&gt;
-                &lt;/div&gt;
-                &lt;div class=&quot;modal-status&quot;&gt;
-                  &lt;p class=&quot;error&quot;&gt;{modalStatusMsg}&lt;/p&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/section&gt;
-        &lt;/template&gt;
+                <span class="cm">&lt;!-- Track Selection --&gt;</span>
+                <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isCloudCoach}</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center; margin-top: 1.5rem;&quot;</span><span class="p">&gt;</span>Select Student Track<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;track-toggle-row&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Support Track&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">{supportTrackVariant}</span>
+                      <span class="na">onclick</span><span class="o">=</span><span class="s">{selectSupportTrack}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Track 1&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">{track1Variant}</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{selectTrack1}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Track 2&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">{track2Variant}</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{selectTrack2}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Track 3&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">{track3Variant}</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{selectTrack3}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;track-description&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{trackDescription}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-        &lt;!-- Sidebar Week Selection --&gt;
-        &lt;div class=&quot;sidebar&quot;&gt;
-          &lt;template for:each={weekOptions} for:item=&quot;opt&quot;&gt;
-            &lt;div key={opt.value} data-week={opt.value} onclick={handleWeekClick} class={opt.cssClass}&gt;
+                <span class="cm">&lt;!-- Week Availability --&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center; margin-top: 1.5rem;&quot;</span><span class="p">&gt;</span>Set Out of Office<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;weeks-container two-column&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;week-column&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">for:each</span><span class="o">=</span><span class="s">{weekListLeft}</span> <span class="na">for:item</span><span class="o">=</span><span class="s">&quot;week&quot;</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="o">=</span><span class="s">{week.label}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;week-option&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">{week.label}</span> <span class="na">name</span><span class="o">=</span><span class="s">{week.name}</span> <span class="na">checked</span><span class="o">=</span><span class="s">{week.checked}</span>
+                          <span class="na">onchange</span><span class="o">=</span><span class="s">{handleWeekToggle}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-input</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;week-column&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">for:each</span><span class="o">=</span><span class="s">{weekListRight}</span> <span class="na">for:item</span><span class="o">=</span><span class="s">&quot;week&quot;</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="o">=</span><span class="s">{week.label}</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;week-option&quot;</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">{week.label}</span> <span class="na">name</span><span class="o">=</span><span class="s">{week.name}</span> <span class="na">checked</span><span class="o">=</span><span class="s">{week.checked}</span>
+                          <span class="na">onchange</span><span class="o">=</span><span class="s">{handleWeekToggle}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-input</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-footer&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;brand&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Update Settings&quot;</span>
+                    <span class="na">onclick</span><span class="o">=</span><span class="s">{handleUpdateSettings}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;neutral&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Report an Error&quot;</span>
+                    <span class="na">onclick</span><span class="o">=</span><span class="s">{handleReportError}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;modal-status&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{modalStatusMsg}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+        <span class="cm">&lt;!-- Sidebar Week Selection --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sidebar&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">template</span> <span class="na">for:each</span><span class="o">=</span><span class="s">{weekOptions}</span> <span class="na">for:item</span><span class="o">=</span><span class="s">&quot;opt&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">key</span><span class="o">=</span><span class="s">{opt.value}</span> <span class="na">data-week</span><span class="o">=</span><span class="s">{opt.value}</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleWeekClick}</span> <span class="na">class</span><span class="o">=</span><span class="s">{opt.cssClass}</span><span class="p">&gt;</span>
               {opt.label}
-              &lt;template if:true={opt.isOverdue}&gt;
-                &lt;lightning-icon icon-name=&quot;utility:warning&quot; alternative-text=&quot;Overdue&quot; variant=&quot;warning&quot; size=&quot;xx-small&quot;
-                  class=&quot;slds-m-left_xx-small&quot;&gt;&lt;/lightning-icon&gt;
-              &lt;/template&gt;
-            &lt;/div&gt;
-          &lt;/template&gt;
-        &lt;/div&gt;
+              <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{opt.isOverdue}</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:warning&quot;</span> <span class="na">alternative-text</span><span class="o">=</span><span class="s">&quot;Overdue&quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;warning&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;xx-small&quot;</span>
+                  <span class="na">class</span><span class="o">=</span><span class="s">&quot;slds-m-left_xx-small&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-        &lt;!-- Main Portal Content --&gt;
-        &lt;div class=&quot;main&quot;&gt;
-          &lt;!-- VAF Mode --&gt;
-          &lt;template if:true={isVAF}&gt;
-            &lt;h2&gt;BestPrep Volunteer Agreement Form&lt;/h2&gt;
-            &lt;p&gt;This form must be completed once per school year...&lt;/p&gt;
+        <span class="cm">&lt;!-- Main Portal Content --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main&quot;</span><span class="p">&gt;</span>
+          <span class="cm">&lt;!-- VAF Mode --&gt;</span>
+          <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isVAF}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>BestPrep Volunteer Agreement Form<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This form must be completed once per school year...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
-            &lt;p&gt;&lt;strong&gt;Name:&lt;/strong&gt; {mentorFullName}&lt;/p&gt;
-            &lt;p&gt;&lt;strong&gt;Company:&lt;/strong&gt; {assignedCompany}&lt;/p&gt;
-            &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; {connectionData.Mentor_Email__c}&lt;/p&gt;
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Name:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {mentorFullName}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Company:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {assignedCompany}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Email:<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> {connectionData.Mentor_Email__c}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
-            &lt;div class=&quot;form-section&quot;&gt;
-              &lt;label&gt;Pronouns (select all that apply):&lt;/label&gt;
-              &lt;lightning-checkbox-group name=&quot;pronouns&quot; options={pronounOptions} value={vafForm.pronouns}
-                onchange={handleCheckboxChange}&gt;&lt;/lightning-checkbox-group&gt;
-            &lt;/div&gt;
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-section&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Pronouns (select all that apply):<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">lightning-checkbox-group</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;pronouns&quot;</span> <span class="na">options</span><span class="o">=</span><span class="s">{pronounOptions}</span> <span class="na">value</span><span class="o">=</span><span class="s">{vafForm.pronouns}</span>
+                <span class="na">onchange</span><span class="o">=</span><span class="s">{handleCheckboxChange}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-checkbox-group</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-            &lt;div class=&quot;form-section&quot;&gt;
-              &lt;lightning-combobox name=&quot;ethnicity&quot; label=&quot;Ethnicity&quot; value={vafForm.ethnicity}
-                options={ethnicityOptions} onchange={handleCheckboxChange}&gt;&lt;/lightning-combobox&gt;
-            &lt;/div&gt;
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-section&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">lightning-combobox</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;ethnicity&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Ethnicity&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">{vafForm.ethnicity}</span>
+                <span class="na">options</span><span class="o">=</span><span class="s">{ethnicityOptions}</span> <span class="na">onchange</span><span class="o">=</span><span class="s">{handleCheckboxChange}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-combobox</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-            &lt;div class=&quot;form-section&quot;&gt;
-              &lt;p&gt;BestPrep requires all volunteers to...&lt;/p&gt;
-              &lt;a href=&quot;https://bestprep2018.wpenginepowered.com/wp-content/uploads/2023/10/BestPrep-Belief-Statements.pdf&quot;
-                target=&quot;_blank&quot;&gt;Belief Statements&lt;/a&gt;&lt;br&gt;
-              &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/EDA0RFlhW6Q&quot; frameborder=&quot;0&quot;
-                allowfullscreen&gt;&lt;/iframe&gt;
-            &lt;/div&gt;
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-section&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>BestPrep requires all volunteers to...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://bestprep2018.wpenginepowered.com/wp-content/uploads/2023/10/BestPrep-Belief-Statements.pdf&quot;</span>
+                <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>Belief Statements<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;560&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;315&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/EDA0RFlhW6Q&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+                <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-            &lt;div class=&quot;form-section&quot;&gt;
-              &lt;template for:each={vafCheckboxes} for:item=&quot;item&quot;&gt;
-                &lt;lightning-input key={item.name} type=&quot;checkbox&quot; name={item.name} label={item.label}
-                  onchange={handleCheckboxChange}&gt;&lt;/lightning-input&gt;
-              &lt;/template&gt;
-            &lt;/div&gt;
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-section&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">template</span> <span class="na">for:each</span><span class="o">=</span><span class="s">{vafCheckboxes}</span> <span class="na">for:item</span><span class="o">=</span><span class="s">&quot;item&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">lightning-input</span> <span class="na">key</span><span class="o">=</span><span class="s">{item.name}</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">{item.name}</span> <span class="na">label</span><span class="o">=</span><span class="s">{item.label}</span>
+                  <span class="na">onchange</span><span class="o">=</span><span class="s">{handleCheckboxChange}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-input</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-            &lt;div class=&quot;form-actions&quot;&gt;
-              &lt;lightning-button variant=&quot;brand&quot; label=&quot;Submit&quot; onclick={handleVafSubmit}&gt;&lt;/lightning-button&gt;
-            &lt;/div&gt;
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-actions&quot;</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;brand&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleVafSubmit}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-            &lt;p class=&quot;error&quot;&gt;{statusMsg}&lt;/p&gt;
-          &lt;/template&gt;
+            <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{statusMsg}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-          &lt;!-- Survey Mode --&gt;
-          &lt;template if:true={isSurveyWeek}&gt;
-            &lt;h2&gt;Survey&lt;/h2&gt;
-            &lt;p&gt;Survey content goes here.&lt;/p&gt;
-          &lt;/template&gt;
+          <span class="cm">&lt;!-- Survey Mode --&gt;</span>
+          <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isSurveyWeek}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Survey<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Survey content goes here.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-          &lt;!-- Weekly Message --&gt;
-          &lt;template if:false={isVAF}&gt;
-            &lt;template if:false={isSurveyWeek}&gt;
-              &lt;div class=&quot;week-header&quot;&gt;
-                &lt;h2&gt;{selectedWeek} - this message is assigned for {currentGuidingQuestion.dueDate}&lt;/h2&gt;
-                &lt;h3&gt;{currentGuidingQuestion.title}&lt;/h3&gt;
-                &lt;p&gt;{currentGuidingQuestion.talkingPoints}&lt;/p&gt;
-                &lt;p&gt;
-                  Your student's name is &lt;strong&gt;{studentFamiliarName}&lt;/strong&gt; at &lt;strong&gt;{assignedSchool}&lt;/strong&gt;.
+          <span class="cm">&lt;!-- Weekly Message --&gt;</span>
+          <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isVAF}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isSurveyWeek}</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;week-header&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{selectedWeek} - this message is assigned for {currentGuidingQuestion.dueDate}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>{currentGuidingQuestion.title}<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{currentGuidingQuestion.talkingPoints}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+                  Your student&#39;s name is <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{studentFamiliarName}<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> at <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>{assignedSchool}<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>.
                   Please contact your BestPrep Coordinator if you have questions.
-                &lt;/p&gt;
-              &lt;/div&gt;
+                <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-              &lt;div class=&quot;messages-container&quot;&gt;
-                &lt;!-- Message Left --&gt;
-                &lt;div class=&quot;message-left&quot;&gt;
-                  &lt;h4&gt;{leftMessageLabel} Message&lt;/h4&gt;
-                  &lt;!-- Cloud Coach Left --&gt;
-                  &lt;template if:true={isCloudCoach}&gt;
-                    &lt;template if:true={mentorMessage}&gt;
-                      &lt;template if:true={mentorMessageNeedsReview}&gt;
-                        &lt;p class=&quot;info&quot;&gt;This message is pending manual review.&lt;/p&gt;
-                      &lt;/template&gt;
-                      &lt;template if:true={mentorFileLink}&gt;
-                        &lt;template if:true={isMentorFileProcessing}&gt;
-                          &lt;p&gt;&lt;lightning-icon icon-name=&quot;utility:spinner&quot; size=&quot;xx-small&quot;&gt;&lt;/lightning-icon&gt; Attachment
-                            Processing...&lt;/p&gt;
-                        &lt;/template&gt;
-                        &lt;template if:false={isMentorFileProcessing}&gt;
-                          &lt;p&gt;&lt;a href={mentorFileLink} target=&quot;_blank&quot;&gt;View Attachment&lt;/a&gt;&lt;/p&gt;
-                        &lt;/template&gt;
-                      &lt;/template&gt;
-                      &lt;div class=&quot;msg-box&quot; lwc:dom=&quot;manual&quot; data-id=&quot;mentorMsg&quot;&gt;&lt;/div&gt;
-                    &lt;/template&gt;
-                    &lt;template if:false={mentorMessage}&gt;
-                      &lt;template if:true={mentorCanWrite}&gt;
-                        &lt;template if:true={attachmentEnabled}&gt;
-                          &lt;label class=&quot;slds-form-element__label&quot;&gt;Attach a PDF file&lt;/label&gt;
-                          &lt;input type=&quot;file&quot; accept=&quot;application/pdf&quot; onchange={handleFileChange} /&gt;
-                        &lt;/template&gt;
-                        &lt;lightning-textarea value={messageBody} label=&quot; &quot; variant=&quot;label-hidden&quot;
-                          onchange={handleChange}&gt;&lt;/lightning-textarea&gt;&lt;br&gt;
-                        &lt;lightning-button variant=&quot;brand&quot; label=&quot;Submit&quot; onclick={handleSubmit}&gt;&lt;/lightning-button&gt;
-                      &lt;/template&gt;
-                      &lt;template if:false={mentorCanWrite}&gt;
-                        &lt;p class=&quot;info&quot;&gt;You can submit a message if your student hasn't written by
-                          {mentorCanWriteDateText}.&lt;/p&gt;
-                      &lt;/template&gt;
-                    &lt;/template&gt;
-                  &lt;/template&gt;
+              <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;messages-container&quot;</span><span class="p">&gt;</span>
+                <span class="cm">&lt;!-- Message Left --&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;message-left&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>{leftMessageLabel} Message<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+                  <span class="cm">&lt;!-- Cloud Coach Left --&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isCloudCoach}</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorMessage}</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorMessageNeedsReview}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>This message is pending manual review.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorFileLink}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isMentorFileProcessing}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:spinner&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;xx-small&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span> Attachment
+                            Processing...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isMentorFileProcessing}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{mentorFileLink}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>View Attachment<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;msg-box&quot;</span> <span class="na">lwc:dom</span><span class="o">=</span><span class="s">&quot;manual&quot;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&quot;mentorMsg&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{mentorMessage}</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorCanWrite}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{attachmentEnabled}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slds-form-element__label&quot;</span><span class="p">&gt;</span>Attach a PDF file<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;application/pdf&quot;</span> <span class="na">onchange</span><span class="o">=</span><span class="s">{handleFileChange}</span> <span class="p">/&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-textarea</span> <span class="na">value</span><span class="o">=</span><span class="s">{messageBody}</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot; &quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;label-hidden&quot;</span>
+                          <span class="na">onchange</span><span class="o">=</span><span class="s">{handleChange}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-textarea</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;brand&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleSubmit}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{mentorCanWrite}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>You can submit a message if your student hasn&#39;t written by
+                          {mentorCanWriteDateText}.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-                  &lt;!-- eMentors Left --&gt;
-                  &lt;template if:false={isCloudCoach}&gt;
-                    &lt;div class=&quot;msg-box&quot;&gt;
-                      &lt;template if:true={studentFileLink}&gt;
-                        &lt;p&gt;&lt;a href={studentFileLink} target=&quot;_blank&quot;&gt;View Attachment&lt;/a&gt;&lt;/p&gt;
-                      &lt;/template&gt;
-                      &lt;lightning-formatted-rich-text value={studentMessage}&gt;&lt;/lightning-formatted-rich-text&gt;
-                    &lt;/div&gt;
-                  &lt;/template&gt;
-                &lt;/div&gt;
+                  <span class="cm">&lt;!-- eMentors Left --&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isCloudCoach}</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;msg-box&quot;</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{studentFileLink}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{studentFileLink}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>View Attachment<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">lightning-formatted-rich-text</span> <span class="na">value</span><span class="o">=</span><span class="s">{studentMessage}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-formatted-rich-text</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-                &lt;!-- Message Right --&gt;
-                &lt;div class=&quot;message-right&quot;&gt;
-                  &lt;h4&gt;{rightMessageLabel} Message&lt;/h4&gt;
+                <span class="cm">&lt;!-- Message Right --&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;message-right&quot;</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span>{rightMessageLabel} Message<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
 
-                  &lt;!-- eMentors Right --&gt;
-                  &lt;template if:false={isCloudCoach}&gt;
-                    &lt;template if:true={mentorMessage}&gt;
-                      &lt;template if:true={mentorMessageNeedsReview}&gt;
-                        &lt;p class=&quot;info&quot;&gt;This message is pending manual review.&lt;/p&gt;
-                      &lt;/template&gt;
-                      &lt;template if:true={mentorFileLink}&gt;
-                        &lt;template if:true={isMentorFileProcessing}&gt;
-                          &lt;p&gt;&lt;lightning-icon icon-name=&quot;utility:spinner&quot; size=&quot;xx-small&quot;&gt;&lt;/lightning-icon&gt; Attachment
-                            Processing...&lt;/p&gt;
-                        &lt;/template&gt;
-                        &lt;template if:false={isMentorFileProcessing}&gt;
-                          &lt;p&gt;&lt;a href={mentorFileLink} target=&quot;_blank&quot;&gt;View Attachment&lt;/a&gt;&lt;/p&gt;
-                        &lt;/template&gt;
-                      &lt;/template&gt;
-                      &lt;div class=&quot;msg-box&quot; lwc:dom=&quot;manual&quot; data-id=&quot;mentorMsg&quot;&gt;&lt;/div&gt;
-                    &lt;/template&gt;
-                    &lt;template if:false={mentorMessage}&gt;
-                      &lt;template if:true={mentorCanWrite}&gt;
-                        &lt;template if:true={attachmentEnabled}&gt;
-                          &lt;label class=&quot;slds-form-element__label&quot;&gt;Attach a PDF file&lt;/label&gt;
-                          &lt;input type=&quot;file&quot; accept=&quot;application/pdf&quot; class=&quot;slds-input&quot; onchange={handleFileChange} /&gt;
-                        &lt;/template&gt;
-                        &lt;lightning-textarea value={messageBody} label=&quot; &quot; variant=&quot;label-hidden&quot;
-                          onchange={handleChange}&gt;&lt;/lightning-textarea&gt;&lt;br&gt;
-                        &lt;lightning-button variant=&quot;brand&quot; label=&quot;Submit&quot; onclick={handleSubmit}&gt;&lt;/lightning-button&gt;
-                      &lt;/template&gt;
-                      &lt;template if:false={mentorCanWrite}&gt;
-                        &lt;p class=&quot;info&quot;&gt;You can submit a message if your student hasn't written by
-                          {mentorCanWriteDateText}.&lt;/p&gt;
-                      &lt;/template&gt;
-                    &lt;/template&gt;
-                  &lt;/template&gt;
+                  <span class="cm">&lt;!-- eMentors Right --&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isCloudCoach}</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorMessage}</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorMessageNeedsReview}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>This message is pending manual review.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorFileLink}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isMentorFileProcessing}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">lightning-icon</span> <span class="na">icon-name</span><span class="o">=</span><span class="s">&quot;utility:spinner&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;xx-small&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-icon</span><span class="p">&gt;</span> Attachment
+                            Processing...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{isMentorFileProcessing}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{mentorFileLink}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>View Attachment<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;msg-box&quot;</span> <span class="na">lwc:dom</span><span class="o">=</span><span class="s">&quot;manual&quot;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&quot;mentorMsg&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{mentorMessage}</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{mentorCanWrite}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{attachmentEnabled}</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slds-form-element__label&quot;</span><span class="p">&gt;</span>Attach a PDF file<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                          <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">accept</span><span class="o">=</span><span class="s">&quot;application/pdf&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;slds-input&quot;</span> <span class="na">onchange</span><span class="o">=</span><span class="s">{handleFileChange}</span> <span class="p">/&gt;</span>
+                        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-textarea</span> <span class="na">value</span><span class="o">=</span><span class="s">{messageBody}</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot; &quot;</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;label-hidden&quot;</span>
+                          <span class="na">onchange</span><span class="o">=</span><span class="s">{handleChange}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-textarea</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">lightning-button</span> <span class="na">variant</span><span class="o">=</span><span class="s">&quot;brand&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">{handleSubmit}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-button</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:false</span><span class="o">=</span><span class="s">{mentorCanWrite}</span><span class="p">&gt;</span>
+                        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">&gt;</span>You can submit a message if your student hasn&#39;t written by
+                          {mentorCanWriteDateText}.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-                  &lt;!-- Cloud Coach Right --&gt;
-                  &lt;template if:true={isCloudCoach}&gt;
-                    &lt;template if:true={studentFileLink}&gt;
-                      &lt;p&gt;&lt;a href={studentFileLink} target=&quot;_blank&quot;&gt;View Attachment&lt;/a&gt;&lt;/p&gt;
-                    &lt;/template&gt;
-                    &lt;div class=&quot;msg-box&quot;&gt;
-                      &lt;lightning-formatted-rich-text value={studentMessage}&gt;&lt;/lightning-formatted-rich-text&gt;
-                    &lt;/div&gt;
-                  &lt;/template&gt;
+                  <span class="cm">&lt;!-- Cloud Coach Right --&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{isCloudCoach}</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">template</span> <span class="na">if:true</span><span class="o">=</span><span class="s">{studentFileLink}</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">{studentFileLink}</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>View Attachment<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;msg-box&quot;</span><span class="p">&gt;</span>
+                      <span class="p">&lt;</span><span class="nt">lightning-formatted-rich-text</span> <span class="na">value</span><span class="o">=</span><span class="s">{studentMessage}</span><span class="p">&gt;&lt;/</span><span class="nt">lightning-formatted-rich-text</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
 
-                  &lt;p class=&quot;error&quot;&gt;{statusMsg}&lt;/p&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/template&gt;
-          &lt;/template&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/template&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-</code></pre>
+                  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span>{statusMsg}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+              <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
 <h2 id="mentorportalcss">mentorPortal.css</h2>
-<pre><code class="language-css">:host {
-  display: block;
-  font-family: &quot;Segoe UI&quot;, Tahoma, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  min-height: 100vh;
-}
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">host</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Segoe UI&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Tahoma</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f8f9fa</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="w">  </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+<span class="p">}</span>
 
-.container {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-}
+<span class="p">.</span><span class="nc">container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+<span class="p">}</span>
 
-.sidebar {
-  width: 12%;
-  background-color: #fff;
-  padding: 0.5rem;
-  border-right: 1px solid #e0e0e0;
-}
+<span class="p">.</span><span class="nc">sidebar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-right</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#e0e0e0</span><span class="p">;</span>
+<span class="p">}</span>
 
-.sidebar-item {
-  margin: 0.25rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  color: #333;
-}
+<span class="p">.</span><span class="nc">sidebar-item</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="kt">rem</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="w">  </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="k">background-color</span><span class="w"> </span><span class="mf">0.2</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="p">}</span>
 
-.sidebar-item:hover {
-  background-color: #f0f0f0;
-}
+<span class="p">.</span><span class="nc">sidebar-item</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0f0f0</span><span class="p">;</span>
+<span class="p">}</span>
 
-.sidebar-item.active-week {
-  background-color: #0070d2;
-  color: #fff;
-  font-weight: bold;
-}
+<span class="p">.</span><span class="nc">sidebar-item</span><span class="p">.</span><span class="nc">active-week</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#0070d2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<span class="p">}</span>
 
-.sidebar-item.disabled {
-  color: #aaa;
-  cursor: default;
-}
+<span class="p">.</span><span class="nc">sidebar-item</span><span class="p">.</span><span class="nc">disabled</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#aaa</span><span class="p">;</span>
+<span class="w">  </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">default</span><span class="p">;</span>
+<span class="p">}</span>
 
-.main {
-  width: 88%;
-  padding: 2rem;
-}
+<span class="p">.</span><span class="nc">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.week-header h2 {
-  margin-bottom: 0.25rem;
-}
+<span class="p">.</span><span class="nc">week-header</span><span class="w"> </span><span class="nt">h2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.week-header h3 {
-  margin: 0.5rem 0 0.25rem;
-}
+<span class="p">.</span><span class="nc">week-header</span><span class="w"> </span><span class="nt">h3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mf">0.25</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.week-header p {
-  margin: 0 0 1rem;
-}
+<span class="p">.</span><span class="nc">week-header</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.messages-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
+<span class="p">.</span><span class="nc">messages-container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<span class="p">}</span>
 
-.message-left,
-.message-right {
-  flex: 1;
-  min-width: 300px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1.5rem;
+<span class="p">.</span><span class="nc">message-left</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">message-right</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">min-width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#fff</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
 
-}
+<span class="p">}</span>
 
-.msg-box {
-  white-space: pre-wrap;
-  background-color: #fdfdfd;
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border-radius: 6px;
-  min-height: 120px;
-}
+<span class="p">.</span><span class="nc">msg-box</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">white-space</span><span class="p">:</span><span class="w"> </span><span class="kc">pre-wrap</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#fdfdfd</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ddd</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
 
-.form-section {
-  margin: 1.5rem 0;
-}
+<span class="p">.</span><span class="nc">form-section</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-.form-actions {
-  margin-top: 2rem;
-}
+<span class="p">.</span><span class="nc">form-actions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-lightning-textarea,
-lightning-checkbox-group,
-lightning-combobox,
-lightning-input {
-  margin-top: 0.5rem;
-  width: 100%;
-}
+<span class="nt">lightning-textarea</span><span class="o">,</span>
+<span class="nt">lightning-checkbox-group</span><span class="o">,</span>
+<span class="nt">lightning-combobox</span><span class="o">,</span>
+<span class="nt">lightning-input</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
 
-lightning-button {
-  margin-top: 1rem;
-}
+<span class="nt">lightning-button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.error {
-  color: #d32f2f;
-  font-size: 1rem;
-  padding: 1rem 0;
-  text-align: center;
-}
+<span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#d32f2f</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
 
-.info {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #666;
-}
+<span class="p">.</span><span class="nc">info</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">italic</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#666</span><span class="p">;</span>
+<span class="p">}</span>
 
-.spinner-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<span class="p">.</span><span class="nc">spinner-wrapper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0.8</span><span class="p">);</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
 
-/* === BUTTON GROUP === */
-.button-group-top {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  display: flex;
-  gap: 8px;
-  z-index: 999;
-}
+<span class="c">/* === BUTTON GROUP === */</span>
+<span class="p">.</span><span class="nc">button-group-top</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">;</span>
+<span class="p">}</span>
 
-.button-group-top .info-button,
-.button-group-top .settings-button {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 4px;
-  cursor: pointer;
-}
+<span class="p">.</span><span class="nc">button-group-top</span><span class="w"> </span><span class="p">.</span><span class="nc">info-button</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">button-group-top</span><span class="w"> </span><span class="p">.</span><span class="nc">settings-button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-/* === BACKDROP &amp; SHARED MODAL BASE === */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<span class="c">/* === BACKDROP &amp; SHARED MODAL BASE === */</span>
+<span class="p">.</span><span class="nc">modal-backdrop</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">right</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="n">backdrop-filter</span><span class="p">:</span><span class="w"> </span><span class="nb">blur</span><span class="p">(</span><span class="mi">4</span><span class="kt">px</span><span class="p">);</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">);</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
 
-.settings-modal {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 90%;
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-  transition: all 0.3s ease;
-}
+<span class="p">.</span><span class="nc">settings-modal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span>
+<span class="w">  </span><span class="k">transition</span><span class="p">:</span><span class="w"> </span><span class="kc">all</span><span class="w"> </span><span class="mf">0.3</span><span class="kt">s</span><span class="w"> </span><span class="kc">ease</span><span class="p">;</span>
+<span class="p">}</span>
 
-@media screen and (min-width: 768px) {
-  .settings-modal {
-    max-width: 50%;
-  }
-}
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="nt">screen</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">.</span><span class="nc">settings-modal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-.modal-header {
-  display: flex;
-  justify-content: flex-end;
-}
+<span class="p">.</span><span class="nc">modal-header</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">flex-end</span><span class="p">;</span>
+<span class="p">}</span>
 
-.close-icon {
-  cursor: pointer;
-}
+<span class="p">.</span><span class="nc">close-icon</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">cursor</span><span class="p">:</span><span class="w"> </span><span class="kc">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
-.modal-footer {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
+<span class="p">.</span><span class="nc">modal-footer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.modal-status {
-  text-align: center;
-  margin-top: 1rem;
-}
+<span class="p">.</span><span class="nc">modal-status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-/* === INFO MODAL SPECIFIC === */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
+<span class="c">/* === INFO MODAL SPECIFIC === */</span>
+<span class="p">.</span><span class="nc">info-grid</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
+<span class="w">  </span><span class="k">grid-template-rows</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">900</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
 
-.info-box {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 6px;
-  height: 100%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
+<span class="p">.</span><span class="nc">info-box</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#f9f9f9</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span>
+<span class="p">}</span>
 
-/* === SETTINGS MODAL SPECIFIC === */
-.modal-body {
-  text-align: center;
-  padding: 1rem;
-}
+<span class="c">/* === SETTINGS MODAL SPECIFIC === */</span>
+<span class="p">.</span><span class="nc">modal-body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.mentor-info {
-  margin: 1rem auto;
-  text-align: left;
-  max-width: 400px;
-}
+<span class="p">.</span><span class="nc">mentor-info</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
 
-.weeks-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.5rem;
-  margin: 1rem auto;
-  max-width: 600px;
-}
+<span class="p">.</span><span class="nc">weeks-container</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="k">grid</span><span class="p">;</span>
+<span class="w">  </span><span class="k">grid-template-columns</span><span class="p">:</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="kc">auto</span><span class="nv">-fit</span><span class="p">,</span><span class="w"> </span><span class="nf">minmax</span><span class="p">(</span><span class="mi">200</span><span class="kt">px</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">fr</span><span class="p">));</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">  </span><span class="k">max-width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
 
-.weeks-container.two-column {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-}
+<span class="p">.</span><span class="nc">weeks-container</span><span class="p">.</span><span class="nc">two-column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">space-between</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.week-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+<span class="p">.</span><span class="nc">week-column</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">flex</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">flex-direction</span><span class="p">:</span><span class="w"> </span><span class="kc">column</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
 
-.track-toggle-row {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
+<span class="p">.</span><span class="nc">track-toggle-row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span>
+<span class="p">}</span>
 
-.track-description {
-  text-align: center;
-  margin-top: 0.75rem;
-  color: #666;
-  font-style: italic;
-}
+<span class="p">.</span><span class="nc">track-description</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#666</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-style</span><span class="p">:</span><span class="w"> </span><span class="kc">italic</span><span class="p">;</span>
+<span class="p">}</span>
 
-.link-button {
-  display: inline-block;
-  padding: 8px 16px;
-  margin: 4px;
-  background-color: #0070d2;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  text-align: center;
-}
+<span class="p">.</span><span class="nc">link-button</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">inline-block</span><span class="p">;</span>
+<span class="w">  </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#0070d2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">  </span><span class="k">text-decoration</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">0.875</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
 
-.link-button:hover {
-  background-color: #005fb2;
-}
+<span class="p">.</span><span class="nc">link-button</span><span class="p">:</span><span class="nd">hover</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#005fb2</span><span class="p">;</span>
+<span class="p">}</span>
 
-.easteregg-backdrop {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* 50% dim */
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none; /* disable interaction outside modal */
-}
+<span class="p">.</span><span class="nc">easteregg-backdrop</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vw</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w"> </span><span class="c">/* 50% dim */</span>
+<span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">pointer-events</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span><span class="w"> </span><span class="c">/* disable interaction outside modal */</span>
+<span class="p">}</span>
 
-.easteregg-wrapper {
-  width: 80vw;
-  aspect-ratio: 16 / 9;
-  background-color: black;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 8px solid;
-  border-image: repeating-linear-gradient(
-    45deg,
-    red 0px,
-    red 10px,
-    black 10px,
-    black 20px
-  ) 8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto; /* allow interaction inside modal */
-}
+<span class="p">.</span><span class="nc">easteregg-wrapper</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">vw</span><span class="p">;</span>
+<span class="w">  </span><span class="k">aspect-ratio</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border-image</span><span class="p">:</span><span class="w"> </span><span class="nb">repeating-linear-gradient</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">45</span><span class="kt">deg</span><span class="p">,</span>
+<span class="w">    </span><span class="kc">red</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">,</span>
+<span class="w">    </span><span class="kc">red</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">,</span>
+<span class="w">    </span><span class="kc">black</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">,</span>
+<span class="w">    </span><span class="kc">black</span><span class="w"> </span><span class="mi">20</span><span class="kt">px</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">  </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">  </span><span class="k">pointer-events</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span><span class="w"> </span><span class="c">/* allow interaction inside modal */</span>
+<span class="p">}</span>
 
-.easteregg-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-</code></pre>
+<span class="p">.</span><span class="nc">easteregg-svg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -1954,7 +1956,7 @@ lightning-button {
     
     
     
-    <a href="https://www.linkedin.com/company/bestprep/" target="_blank" rel="noopener" title="BestPrep&#39;s linkedIn" class="md-social__link">
+    <a href="https://www.linkedin.com/company/bestprep/" target="_blank" rel="noopener" title="BestPrep&#39;s LinkedIn" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
     </a>
   
@@ -1962,7 +1964,7 @@ lightning-button {
     
     
     
-    <a href="https://www.github.com/bestprep" target="_blank" rel="noopener" title="BestPrep&#39;s Github" class="md-social__link">
+    <a href="https://www.github.com/bestprep" target="_blank" rel="noopener" title="BestPrep&#39;s GitHub" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
@@ -1993,7 +1995,9 @@ lightning-button {
     
       <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="https://www.jsdelivr.com/package/npm/mermaid"></script>
+        <script src="https://unpkg.com/mermaid@10.9.3/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/mermaid-init.js"></script>
       
     
   </body>
