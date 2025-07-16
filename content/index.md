@@ -57,8 +57,4 @@ Each program is built around **custom objects**, **flows**, and **automations** 
 
 ## Need Help?
 
-For questions or suggested updates, contact **Tovin Sannes-Venhuizen** or email `salesforce-support@bestprep.org`.
-
----
-
-> _BestPrep's mission is to connect students with business professionals. This system helps us do that reliably, at scale, and with heart._
+For questions about this portal or to suggest edits, contact **Tovin Sannes-Venhuizen** or email `tsannes-venhuizen@bestprep.org`.
