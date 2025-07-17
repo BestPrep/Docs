@@ -36,9 +36,6 @@ graph TD
 
 ---
 
-### [Additional Flows will go here](https://bestprep.org)
-
-
 
 <div id="modal-step-why" class="custom-modal">
   <div class="custom-modal-content">
@@ -58,15 +55,15 @@ graph TD
 
 <div id="modal-step-N3" class="custom-modal">
   <div class="custom-modal-content">
-    <span class="custom-modal-close" onclick="closeModal('modal-step-N2')">&times;</span>
+    <span class="custom-modal-close" onclick="closeModal('modal-step-N3')">&times;</span>
     <h2>Get Triggering Case Records</h2>
     <p>Get the case where <code>CaseId</code> equals that of the triggering case.</p>
   </div>
 </div>
 
-<div id="modal-step-N6" class="custom-modal">
+<div id="modal-step-N4" class="custom-modal">
   <div class="custom-modal-content">
-    <span class="custom-modal-close" onclick="closeModal('modal-step-N3')">&times;</span>
+    <span class="custom-modal-close" onclick="closeModal('modal-step-N4')">&times;</span>
     <h2>Create Coordinator Link</h2>
     <p>Using the case record that triggered the flow, create the coordinator link by adding each piece of the link to a variable that can then be easily changed:</p>
     <ul>
@@ -80,7 +77,7 @@ graph TD
 
 <div id="modal-step-N5" class="custom-modal">
   <div class="custom-modal-content">
-    <span class="custom-modal-close" onclick="closeModal('modal-step-N4')">&times;</span>
+    <span class="custom-modal-close" onclick="closeModal('modal-step-N5')">&times;</span>
     <h2>Update Coordinator Link</h2>
     <p>Take the variable <code>URL</code> and update field <code>Coordinator_Portal_URL__c</code> on the triggering case.</p>
   </div>
@@ -88,7 +85,7 @@ graph TD
 
 <div id="modal-step-N6" class="custom-modal">
   <div class="custom-modal-content">
-    <span class="custom-modal-close" onclick="closeModal('modal-step-N3')">&times;</span>
+    <span class="custom-modal-close" onclick="closeModal('modal-step-N6')">&times;</span>
     <h2>Create Teacher Link</h2>
     <p>Using the case record that triggered the flow, create the teacher link by adding each piece of the link to a variable that can then be easily changed:</p>
     <ul>
@@ -104,7 +101,7 @@ graph TD
 
 <div id="modal-step-N7" class="custom-modal">
   <div class="custom-modal-content">
-    <span class="custom-modal-close" onclick="closeModal('modal-step-N4')">&times;</span>
+    <span class="custom-modal-close" onclick="closeModal('modal-step-N7')">&times;</span>
     <h2>Update Teacher Link</h2>
     <p>Take the variable <code>URL</code> and update field <code>Teacher_Portal_URL__c</code> on the triggering case.</p>
   </div>
