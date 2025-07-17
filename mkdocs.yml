@@ -3,6 +3,7 @@ site_url: https://bestprep.github.io/Docs/
 
 nav:
   - Home: index.md
+  - Add a Page: add_page.md
   - Mentoring:
       - Overview: mentoring/mentoring.md
       - What is Apex: mentoring/apex.md
