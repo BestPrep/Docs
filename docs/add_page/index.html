@@ -1627,7 +1627,7 @@ print("Hello World")
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mermaid&quot;</span><span class="p">&gt;</span>
 flowchart TD
   A[Start] --&gt; B{Decision}
-  B --&gt;|Yes| C[Do it]
+  B --&gt;|Yes| C(Do it)
   B --&gt;|No| D[Cancel]
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -1635,7 +1635,7 @@ flowchart TD
 <div class="mermaid">
 flowchart TD
   A[Start] --> B{Decision}
-  B -->|Yes| C[Do it]
+  B -->|Yes| C(Do it)
   B -->|No| X[This One is Clickable]
 
   class X click-step-X;

@@ -100,7 +100,7 @@ You can add flowcharts using Mermaid like this:
 <div class="mermaid">
 flowchart TD
   A[Start] --> B{Decision}
-  B -->|Yes| C[Do it]
+  B -->|Yes| C(Do it)
   B -->|No| D[Cancel]
 </div>
 ```
@@ -110,7 +110,7 @@ flowchart TD
 <div class="mermaid">
 flowchart TD
   A[Start] --> B{Decision}
-  B -->|Yes| C[Do it]
+  B -->|Yes| C(Do it)
   B -->|No| X[This One is Clickable]
 
   class X click-step-X;
@@ -132,7 +132,7 @@ graph TD
   class X click-step-X;
 
   classDef clickable stroke:#333,stroke-width:2px;
-  
+
   class X clickable;
 </div>
 ```
