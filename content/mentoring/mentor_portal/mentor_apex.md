@@ -1,12 +1,57 @@
 # Mentoring Sites - Apex Code
 
-The Apex code file is what gives our JavaScript files the information they need. MentoringMentorPortal.cls is the primary file, but it also uses a helper class for submitting files.
+The Apex code file provides data from Salesforce to our JavaScript components.  
+**MentoringMentorPortal.cls** is the main controller. It interacts with Salesforce records to read and update mentor, student, and case information.  
+It also references a helper class called **FileAttachQueueable.cls** that handles file uploads asynchronously.
 
-## Natural Language Explination of Code
+---
 
-The first line of our code establishes both the name of the file (**MentoringMentorPortal**) as well as how we want to use it - **global without sharing**, which means that there is no user login required to view, edit, or create records. 
+## Natural Language Explanation of Code
 
-We then call our first function, **getConnectionData** which requires the connection Id and the connection Passkey (fields connection__c.Id and connection__c.Passkey__c). Within that object that we lookup, we import a huge amount of data. All the fields of the connection such as Familiar Names and emails, as well as related fields (the Guiding Questions, Case Details). If for some reason this search returns multiple connections with the same ID and Passkey, we only return the first. If there are no connections with this ID and Passkey, we return that the connection does not exist. 
+The Apex file begins with `global without sharing class MentoringMentorPortal`.  
+This allows the class to be accessed externally (via LWC or Aura) and to bypass sharing rules so that mentors can access their own connections without needing Salesforce user accounts.
+
+### getConnectionData
+This method accepts:
+- `connectionId`
+- `passkey`
+
+It verifies the connection and then retrieves:
+- Connection data (names, track, mentor details)
+- Related case fields (company, school, celebration details)
+- Guiding Questions for each week
+- Existing mentor and student messages
+- Company Coordinator emails for the case
+
+It builds a large map containing all this information and returns it for use in the web portal.
+
+### buildTP
+A private helper used to assemble the guiding question (GQ) information for each week.  
+If a GQ is missing, it returns a placeholder message instead of breaking the data structure.
+
+### upsertMentorMessage / upsertMessage
+Allows mentors to create or edit their weekly messages.  
+It checks passkey validity, then either updates the existing message or creates a new one.  
+All new or edited messages are flagged as `"Flag - New"` for staff review.
+
+### upsertMentorMessageWithFile
+Similar to `upsertMentorMessage` but also handles file attachments:
+1. Validates the connection.
+2. Creates or updates the message.
+3. Uploads the file to Salesforce Files (`ContentVersion`).
+4. Links the file to the message using `ContentDocumentLink`.
+5. Calls `FileAttachQueueable` to mark the record as `"Attachment Processing"` until complete.
+
+### updateOutOfOfficeWeeks
+Lets mentors mark which weeks they are unavailable and update their track.  
+The portal reads this data to display availability.
+
+### submitVolunteerAgreement
+Submits the mentor’s volunteer agreement form.  
+It sets the pronouns, ethnicity, and agreement date on the mentor’s associated `Contact` record.
+
+---
+
 
 ## MentoringMentorPortal.cls
 

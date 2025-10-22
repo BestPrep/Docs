@@ -672,11 +672,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#natural-language-explination-of-code" class="md-nav__link">
+  <a href="#natural-language-explanation-of-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Natural Language Explination of Code
+      Natural Language Explanation of Code
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Natural Language Explanation of Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getconnectiondata" class="md-nav__link">
+    <span class="md-ellipsis">
+      getConnectionData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      buildTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessage-upsertmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessage / upsertMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessagewithfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessageWithFile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutofofficeweeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateOutOfOfficeWeeks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitvolunteeragreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      submitVolunteerAgreement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1382,11 +1442,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#natural-language-explination-of-code" class="md-nav__link">
+  <a href="#natural-language-explanation-of-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Natural Language Explination of Code
+      Natural Language Explanation of Code
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Natural Language Explanation of Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getconnectiondata" class="md-nav__link">
+    <span class="md-ellipsis">
+      getConnectionData
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buildtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      buildTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessage-upsertmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessage / upsertMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessagewithfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessageWithFile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutofofficeweeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateOutOfOfficeWeeks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitvolunteeragreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      submitVolunteerAgreement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1434,10 +1554,45 @@
 
 
 <h1 id="mentoring-sites-apex-code">Mentoring Sites - Apex Code</h1>
-<p>The Apex code file is what gives our JavaScript files the information they need. MentoringMentorPortal.cls is the primary file, but it also uses a helper class for submitting files.</p>
-<h2 id="natural-language-explination-of-code">Natural Language Explination of Code</h2>
-<p>The first line of our code establishes both the name of the file (<strong>MentoringMentorPortal</strong>) as well as how we want to use it - <strong>global without sharing</strong>, which means that there is no user login required to view, edit, or create records. </p>
-<p>We then call our first function, <strong>getConnectionData</strong> which requires the connection Id and the connection Passkey (fields connection__c.Id and connection__c.Passkey__c). Within that object that we lookup, we import a huge amount of data. All the fields of the connection such as Familiar Names and emails, as well as related fields (the Guiding Questions, Case Details). If for some reason this search returns multiple connections with the same ID and Passkey, we only return the first. If there are no connections with this ID and Passkey, we return that the connection does not exist. </p>
+<p>The Apex code file provides data from Salesforce to our JavaScript components.<br />
+<strong>MentoringMentorPortal.cls</strong> is the main controller. It interacts with Salesforce records to read and update mentor, student, and case information.<br />
+It also references a helper class called <strong>FileAttachQueueable.cls</strong> that handles file uploads asynchronously.</p>
+<hr />
+<h2 id="natural-language-explanation-of-code">Natural Language Explanation of Code</h2>
+<p>The Apex file begins with <code>global without sharing class MentoringMentorPortal</code>.<br />
+This allows the class to be accessed externally (via LWC or Aura) and to bypass sharing rules so that mentors can access their own connections without needing Salesforce user accounts.</p>
+<h3 id="getconnectiondata">getConnectionData</h3>
+<p>This method accepts:
+- <code>connectionId</code>
+- <code>passkey</code></p>
+<p>It verifies the connection and then retrieves:
+- Connection data (names, track, mentor details)
+- Related case fields (company, school, celebration details)
+- Guiding Questions for each week
+- Existing mentor and student messages
+- Company Coordinator emails for the case</p>
+<p>It builds a large map containing all this information and returns it for use in the web portal.</p>
+<h3 id="buildtp">buildTP</h3>
+<p>A private helper used to assemble the guiding question (GQ) information for each week.<br />
+If a GQ is missing, it returns a placeholder message instead of breaking the data structure.</p>
+<h3 id="upsertmentormessage-upsertmessage">upsertMentorMessage / upsertMessage</h3>
+<p>Allows mentors to create or edit their weekly messages.<br />
+It checks passkey validity, then either updates the existing message or creates a new one.<br />
+All new or edited messages are flagged as <code>"Flag - New"</code> for staff review.</p>
+<h3 id="upsertmentormessagewithfile">upsertMentorMessageWithFile</h3>
+<p>Similar to <code>upsertMentorMessage</code> but also handles file attachments:
+1. Validates the connection.
+2. Creates or updates the message.
+3. Uploads the file to Salesforce Files (<code>ContentVersion</code>).
+4. Links the file to the message using <code>ContentDocumentLink</code>.
+5. Calls <code>FileAttachQueueable</code> to mark the record as <code>"Attachment Processing"</code> until complete.</p>
+<h3 id="updateoutofofficeweeks">updateOutOfOfficeWeeks</h3>
+<p>Lets mentors mark which weeks they are unavailable and update their track.<br />
+The portal reads this data to display availability.</p>
+<h3 id="submitvolunteeragreement">submitVolunteerAgreement</h3>
+<p>Submits the mentor’s volunteer agreement form.<br />
+It sets the pronouns, ethnicity, and agreement date on the mentor’s associated <code>Contact</code> record.</p>
+<hr />
 <h2 id="mentoringmentorportalcls">MentoringMentorPortal.cls</h2>
 <div class="highlight"><pre><span></span><code><span class="n">global</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">sharing</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MentoringMentorPortal</span><span class="w"> </span><span class="p">{</span>
 
