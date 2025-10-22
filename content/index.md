@@ -4,6 +4,8 @@ This site is your central hub for understanding how BestPrep uses Salesforce to 
 
 Whether you're a program manager, support staff, developer, or occasional admin, you'll find everything here you need to work confidently within our Salesforce system.
 
+If you want to get started with understanding simply how Salesforce works and the different tools available to us, please start here: [BestPrep's Salesforce System](systems.md)
+
 ---
 
 ## Purpose of This Site

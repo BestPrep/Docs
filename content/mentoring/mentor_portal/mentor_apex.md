@@ -2,9 +2,13 @@
 
 The Apex code file is what gives our JavaScript files the information they need. MentoringMentorPortal.cls is the primary file, but it also uses a helper class for submitting files.
 
-## MentoringMentorPortal.cls
+## Natural Language Explination of Code
 
-MentoringMentorPortal.cls is the primary file that runs the back-end of the mentor portal. 
+The first line of our code establishes both the name of the file (**MentoringMentorPortal**) as well as how we want to use it - **global without sharing**, which means that there is no user login required to view, edit, or create records. 
+
+We then call our first function, **getConnectionData** which requires the connection Id and the connection Passkey (fields connection__c.Id and connection__c.Passkey__c). Within that object that we lookup, we import a huge amount of data. All the fields of the connection such as Familiar Names and emails, as well as related fields (the Guiding Questions, Case Details). If for some reason this search returns multiple connections with the same ID and Passkey, we only return the first. If there are no connections with this ID and Passkey, we return that the connection does not exist. 
+
+## MentoringMentorPortal.cls
 
 ```java
 global without sharing class MentoringMentorPortal {
@@ -299,7 +303,7 @@ public class FileAttachQueueable implements Queueable {
 
 ## Metadata
 
-Each file needs its own separate metadata file as well. However, they are identical other than the naming. 
+Each file needs its own separate metadata file as well. However, they are identical other than the naming. Please note that the api version should be regularly reviewed and updated to ensure the system is not depreciated. 
 
 MentoringMentorPortal.cls-meta.xml
 

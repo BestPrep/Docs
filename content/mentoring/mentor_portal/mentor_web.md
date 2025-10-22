@@ -1,6 +1,10 @@
-# Mentoring Sites - HTML & CSS
+# **Mentoring Sites - HTML & CSS**
 
-Every single webpage has a few different parts. Ours has 4 - the Apex Code (Salesforce), the JavaScript (what talks to Salesforce), the HTML (what we see), and the CSS (the code that tells our computer how to style the HTML). Think of the HTML like the structure of the house, and the CSS like the paint and wallpaper. 
+
+## Natural Language Explination of Code
+
+HTML (what we see), and the CSS (the code that tells our computer how to style the HTML) are below. Think of the HTML like the structure of the house, and the CSS like the paint and wallpaper. 
+
 
 ## mentorPortal.html
 

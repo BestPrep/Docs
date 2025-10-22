@@ -2,11 +2,12 @@ site_name: BestPrep Docs
 site_url: https://bestprep.github.io/Docs/
 
 nav:
-  - Home: index.md
-  - Add a Page: add_page.md
+  - Home:
+    - Start Here: index.md
+    - Add a Page: add_page.md
+  - Understanding Salesforce: systems.md
   - Mentoring:
       - Overview: mentoring/mentoring.md
-      - What is Apex: mentoring/apex.md
       - Reports: mentoring/reports.md
       - Portals:
           - Mentor Portal:

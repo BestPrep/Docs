@@ -2,6 +2,10 @@
 
 The JavaScript (called js) is what allows the part of the website we see (the html) to talk to the data we got from Salesforce (the apex code). Below is the code for the mentor portal:
 
+## Natural Language Explination of Code
+
+WIP
+
 ## mentorPortal.js
 
 ```java
@@ -833,7 +837,7 @@ export default class StudentPortal extends LightningElement {
 ## Metadata
 Similarly to our Apex code, the JavaScript also needs a meta file for Salesforce LWC use. 
 
-** mentorPortal.js-meta.xml**
+**mentorPortal.js-meta.xml**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
