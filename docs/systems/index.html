@@ -408,6 +408,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Understanding Salesforce
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -419,6 +432,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-salesforce-to-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Salesforce to Excel
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1298,6 +1339,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-salesforce-to-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Salesforce to Excel
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1313,58 +1371,125 @@
 
 
 <h1 id="understanding-salesforce">Understanding Salesforce</h1>
-<p>Salesforce is a Customer Relationship Management system, more commonly referred to as a CRM. The sheer size and ability of something like Salesforce can be daunting to new users, but when broken down, is much easier to understand. Let's compare it to an Excel Spreadsheet, or a Google Sheet. </p>
+<p>Salesforce is a <strong>Customer Relationship Management (CRM)</strong> system. It stores, connects, and manages data for people, organizations, and activities.<br />
+Although Salesforce may look complex, it can be understood easily by comparing it to a spreadsheet.</p>
+<hr />
+<h2 id="comparing-salesforce-to-excel">Comparing Salesforce to Excel</h2>
 <ul>
-<li>In Excel, you have a file - for example, <strong>BestPrep.xlsx</strong>. In Salesforce, we call this our <strong>organization</strong> which is given a custom identifier, as a string of 18 characters. </li>
-<li>Within our "excel file" we have many different sheets. Each sheet contains a different set of information, such as Contacts or Cases. In Salesforce, we call these <strong>objects</strong>. A standard object is just given its name - Contacts. However, a custom object has two underscores and a c appended to the end, such as BestPrepProgramParticipation__c. </li>
-<li>Within each sheet, we have columns. Each column has a different title. Using our Contact sheet as an example, we would expect to have a column named "First Name" or "Last Name" or perhaps "Work Email." In Salesforce, we call these <strong>fields</strong> and they are used to categorize the information within object. </li>
-<li>Finally, we have <strong>records</strong>. Think of records as the rows of our excel file. Within our sheet "Contacts" we have a field "First Name" and a row with the name "Pippin" and another row with the name "Phoebe." Each of these rows are a different contact, which is called a record in the Salesforce ecosystem.</li>
+<li><strong>Organization (Org)</strong> → like your Excel file (<code>BestPrep.xlsx</code>). Each org has a unique 18-character ID.  </li>
+<li><strong>Objects</strong> → like sheets within that file (e.g., Contacts, Cases). Custom objects end in <code>__c</code>, such as <code>BestPrepProgramParticipation__c</code>.  </li>
+<li><strong>Fields</strong> → like column headers. Examples: <code>FirstName</code>, <code>LastName</code>, or <code>Email</code>.  </li>
+<li><strong>Records</strong> → like rows in a sheet. Each record represents one instance of data. Example: one contact named <em>Pippin</em> and another named <em>Phoebe</em>.</li>
 </ul>
 <hr />
 <h1 id="tools-within-salesforce">Tools within Salesforce</h1>
-<h3 id="lightning-experience">Lightning Experience:</h3>
-<p>Inside of Salesforce, we have many different tools for interacting and managing this data. The most well known is the <strong>lightning experience</strong> which is what you see every day when you log onto Salesforce. This allows you to navigate between objects, view and edit records, or create new records. </p>
-<h3 id="reports">Reports:</h3>
-<p>We also have <strong>reports</strong> which are a way to view large amounts of data, filtered by custom criteria. For example, within Salesforce we have thousands of mentoring messages. Messages go through a system where they are scanned by the system for flagged content (contact information, explitives, etc.) and then given a filter status based on this. If we want to run a report to check our flagged messages, we would not want to view every single message ever. Instead, we would filter by cases owned by our user (or another user if checking for someone else) and where Filter_Status__c is set to "Flagged." </p>
-<p>We can create reports that filter by any criteria, or even criteria from across multiple objects (such as messages where Filter_Status__c equals flagged and ALSO the associated case is eMentors and the associated contact has the First_Name of "Pippin.").</p>
-<h3 id="experience-sites">Experience Sites:</h3>
-<p>For public facing parts (the parts the our mentors, students, teachers, and partners see) we have a few different options. Most commonly used are <strong>experience sites</strong> which you can recognize by their unique URL, with a /s/ appended to the end (for example, https://mentoring.bestprep.org/s/student-portal). These are internal and customizable websites that can display, create, or edit data inside of Salesforce by those outside the organization. Some examples are hosting our mentoring platforms (the Student and Mentor portals) or allowing people to register for our events.</p>
-<h3 id="flows">Flows:</h3>
-<p>Flows are used to automate different parts of our data collection, organization, or clean-up. They can be scheduled (happening repeatedly on a date or time), triggered (ran everytime a record is edited), or even be Screen Flows, which are flows that have a graphical user interface for user input or display (such as in the case of forms and teacher sign-ups).</p>
+<h3 id="lightning-experience">Lightning Experience</h3>
+<p>The <strong>Lightning Experience</strong> is the visual interface you use after logging in. It allows you to:
+- Navigate between objects<br />
+- View, edit, and create records<br />
+- Access dashboards, reports, and flows  </p>
+<p>This is where staff spend most of their time.</p>
+<h3 id="reports">Reports</h3>
+<p><strong>Reports</strong> collect and filter data to show specific information.<br />
+For example: to find flagged mentoring messages, create a report where<br />
+<code>Filter_Status__c = "Flagged"</code> and the message belongs to your cases.  </p>
+<p>Reports can also use related data from multiple objects, such as:</p>
+<blockquote>
+<p>Messages where <code>Filter_Status__c = "Flagged"</code><br />
+<strong>and</strong> the related Case is <code>eMentors</code><br />
+<strong>and</strong> the Contact’s <code>FirstName = "Pippin"</code>.</p>
+</blockquote>
+<h3 id="experience-sites">Experience Sites</h3>
+<p><strong>Experience Sites</strong> (formerly “Communities”) are public-facing web portals that connect directly to Salesforce data.<br />
+They always include <code>/s/</code> in the URL (example:<br />
+<code>https://mentoring.bestprep.org/s/student-portal</code>).  </p>
+<p>These allow non-staff users to:
+- Submit or view mentoring messages<br />
+- Register for events<br />
+- Access dashboards or forms  </p>
+<p>The Mentor and Student Portals are both Experience Sites.</p>
+<h3 id="flows">Flows</h3>
+<p><strong>Flows</strong> are Salesforce’s no-code automation tools. They can:
+- Run automatically when records change (Record-Triggered Flows)<br />
+- Execute on schedules (Scheduled Flows)<br />
+- Display forms for user interaction (Screen Flows)</p>
+<p>Flows help automate repetitive tasks such as sending emails, updating fields, or cleaning up records.</p>
 <hr />
-<h1 id="programming-languages">Programming Languages</h1>
-<h3 id="apex">Apex</h3>
-<p>Apex is a programming language developed by Salesforce that lets developers write custom business logic directly on the Salesforce platform.</p>
-<p><strong>It is:</strong></p>
+<h1 id="programming-languages-in-salesforce-projects">Programming Languages in Salesforce Projects</h1>
+<p>Salesforce development often combines <strong>Apex</strong>, <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>SOQL</strong>.<br />
+Each language serves a distinct purpose in building portals, automations, and data logic.</p>
+<hr />
+<h2 id="apex">Apex</h2>
+<p><strong>Apex</strong> is Salesforce’s backend programming language, similar to Java.<br />
+It runs entirely on Salesforce servers.</p>
+<p><strong>It is:</strong>
+- Strongly typed<br />
+- Object-oriented<br />
+- Executed in the cloud  </p>
+<p><strong>Apex is used to:</strong>
+- Run logic before or after record changes (triggers)<br />
+- Enforce rules and automate complex workflows<br />
+- Integrate Salesforce with external systems<br />
+- Support Lightning Web Components (LWCs) through backend data access  </p>
+<p><strong>When to use Apex:</strong>
+When Flows or Validation Rules cannot perform complex logic or handle large data volumes.</p>
+<p><strong>Examples:</strong>
+- Creating related records automatically<br />
+- Updating records in multiple related objects<br />
+- Running batch jobs or scheduled processes<br />
+- Supplying data to Lightning Web Components  </p>
+<p>In our mentoring portals, Apex is primarily used to provide data and handle file submissions for LWCs.</p>
+<hr />
+<h2 id="html">HTML</h2>
+<p><strong>HTML (HyperText Markup Language)</strong> defines the structure of a webpage.<br />
+In Experience Sites or Lightning Web Components, HTML determines what appears on screen.</p>
+<p><strong>Example uses:</strong>
+- Displaying text, buttons, and forms<br />
+- Embedding data retrieved from Apex<br />
+- Structuring mentor and student message areas  </p>
+<p>HTML forms the skeleton; everything else builds around it.</p>
+<hr />
+<h2 id="css">CSS</h2>
+<p><strong>CSS (Cascading Style Sheets)</strong> controls how a webpage looks.<br />
+It manages color, size, spacing, and layout.</p>
+<p><strong>Example uses:</strong>
+- Styling buttons, cards, or tables in portals<br />
+- Making pages mobile-friendly<br />
+- Adding hover effects and animations  </p>
+<p>CSS ensures the portals match BestPrep’s visual identity while staying accessible and simple.</p>
+<hr />
+<h2 id="javascript">JavaScript</h2>
+<p><strong>JavaScript</strong> makes Salesforce sites interactive.<br />
+It’s used heavily in <strong>Lightning Web Components (LWCs)</strong>.</p>
+<p><strong>Example uses:</strong>
+- Validating form input before saving<br />
+- Fetching data from Apex classes<br />
+- Dynamically updating the page without refreshing<br />
+- Managing conditional display of mentor/student messages  </p>
+<p>In short, Apex handles logic and data. JavaScript handles interactivity and responsiveness.</p>
+<hr />
+<h2 id="soql-salesforce-object-query-language">SOQL (Salesforce Object Query Language)</h2>
+<p><strong>SOQL</strong> is similar to SQL but works specifically for Salesforce data.<br />
+It retrieves records from objects inside your org.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span><span class="n">LastName</span><span class="p">,</span><span class="w"> </span><span class="n">Email</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">Email</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%@bestprep.org&#39;</span>
+</code></pre></div></p>
+<h3 id="common-uses">Common uses:</h3>
 <ul>
-<li>Strongly typed (like Java)</li>
-<li>Object-oriented</li>
-<li>Hosted and executed entirely in the Salesforce cloud</li>
+<li>Querying records in Apex code</li>
+<li>Filtering related data for portals</li>
+<li>Powering reports or admin scripts</li>
+<li>SOQL is the language Apex uses to communicate with your Salesforce database.</li>
 </ul>
-<p><strong>Apex allows you to:</strong></p>
+<h3 id="summary">Summary</h3>
 <ul>
-<li>Create custom triggers that run before or after record changes (like INSERT, UPDATE, DELETE)</li>
-<li>Write classes and methods to automate processes, enforce rules, or integrate with external systems</li>
-<li>Call APIs, perform complex logic, or build reusable tools that work across your org</li>
+<li>Salesforce is structured like a multi-sheet spreadsheet where data is stored as objects, fields, and records.</li>
+<li>Lightning Experience and Experience Sites provide user-friendly ways to view and edit data.</li>
+<li>Reports and Flows handle data visualization and automation.</li>
+<li>Apex, HTML, CSS, JavaScript, and SOQL together power the mentoring portals—combining backend logic, data retrieval, visual layout, styling, and interactivity.</li>
 </ul>
-<h2 id="when-is-apex-used">When Is Apex Used?</h2>
-<p>You use Apex when point-and-click tools like Flows, Process Builder, or Validation Rules aren’t enough.</p>
-<h3 id="common-examples">Common examples:</h3>
-<ul>
-<li>Automatically create child records when a parent is inserted</li>
-<li>Update related objects across lookups</li>
-<li>Schedule jobs or run batch operations on thousands of records</li>
-<li>Build Lightning Web Components (LWCs) that fetch or modify Salesforce data</li>
-</ul>
-<p>That last use case (Building LWCs) is what we primarily use Apex for in the mentoring project.</p>
-<h3 id="html">HTML</h3>
-<p>Content Here</p>
-<h3 id="css">CSS</h3>
-<p>Content Here</p>
-<h3 id="javascript">JavaScript</h3>
-<p>Content Here</p>
-<h3 id="sql">SQL</h3>
-<p>Content Here</p>
 
 
 
