@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://bestprep.github.io/Docs/mentoring/flagging_system/flagging_code/">
+        <link rel="canonical" href="https://bestprep.github.io/Docs/mentoring/other_systems/portal_upload/">
       
       
-        <link rel="prev" href="../making_updates/">
+        <link rel="prev" href="../other_flows/">
       
       
-        <link rel="next" href="../../email_system/notification_email/">
+        <link rel="next" href="../../../student_spotlight/overview/">
       
       
       <link rel="icon" href="../../../images/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Code - BestPrep Docs</title>
+        <title>Portal Upload - BestPrep Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flagging-code" class="md-skip">
+        <a href="#mentoring-portal-upload" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code
+              Portal Upload
             
           </span>
         </div>
@@ -1136,8 +1136,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1148,11 +1146,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
         
           
           <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
@@ -1168,7 +1166,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4_1">
             <span class="md-nav__icon md-icon"></span>
             Flagging System
@@ -1182,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flagging_system/" class="md-nav__link">
+      <a href="../../flagging_system/flagging_system/" class="md-nav__link">
         
   
   
@@ -1205,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../making_updates/" class="md-nav__link">
+      <a href="../../flagging_system/making_updates/" class="md-nav__link">
         
   
   
@@ -1225,19 +1223,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../flagging_system/flagging_code/" class="md-nav__link">
         
   
   
@@ -1248,7 +1237,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1361,6 +1349,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1371,11 +1361,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" checked>
         
           
           <label class="md-nav__link" for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
@@ -1391,7 +1381,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_4_3">
             <span class="md-nav__icon md-icon"></span>
             Other Systems
@@ -1405,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../other_systems/other_flows/" class="md-nav__link">
+      <a href="../other_flows/" class="md-nav__link">
         
   
   
@@ -1425,10 +1415,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../other_systems/portal_upload/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1439,6 +1438,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1710,7 +1710,20 @@
 
 
 
-<h1 id="flagging-code">Flagging Code</h1>
+<h1 id="mentoring-portal-upload">Mentoring Portal Upload</h1>
+<p>Due to the high number of errors that were historically happening with Apsona portal uploads for every connection and the high cost of Apsona licenses, we have switched to a custom build integration that allows us to process portal uploads internally. The base of this system is a simple CSV file processor that parses the CSV content into rows, then creates / updates the contact for student and mentor first, creates the BestPrep Program Participation record and relates it to each contact respectively, then creates the Connection and links it to both the case and the student and mentor BPPPs. </p>
+<p>To reduce errors, the upload system has extremely strict data validation filters, as well as formatting data itself when mis-constructed. </p>
+<ul>
+<li>Names are always corrected to proper formatting <ul>
+<li>"james" would become "James"</li>
+<li>"RUTHIE" would become "Ruthie"</li>
+</ul>
+</li>
+<li>Any pronoun format that does not match the He/him/his or She/they/theirs format will be rejected with an error message</li>
+<li>Case ID must be valid</li>
+<li>All email addresses must be in the format user@domain.com and are formatted to all lower-case. </li>
+<li>Once a portal upload is completed, the option to do another portal upload for that case is disabled and must be done manually. </li>
+</ul>
 
 
 

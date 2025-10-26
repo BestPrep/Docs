@@ -13,6 +13,18 @@
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
+         <loc>https://bestprep.github.io/Docs/board/access/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/board/content/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/board/overview/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
          <loc>https://bestprep.github.io/Docs/mentoring/mentoring/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
@@ -57,7 +69,11 @@
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://bestprep.github.io/Docs/mentoring/other_flows/other_flows/</loc>
+         <loc>https://bestprep.github.io/Docs/mentoring/other_systems/other_flows/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/mentoring/other_systems/portal_upload/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
@@ -82,6 +98,34 @@
     </url>
     <url>
          <loc>https://bestprep.github.io/Docs/mentoring/student_portal/student_portal/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/judge-portal/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/judge-signup/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/overview/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/prereg/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/setup/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/site/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://bestprep.github.io/Docs/student_spotlight/submission/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
 </urlset>
