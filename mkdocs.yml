@@ -6,6 +6,10 @@ nav:
     - Start Here: index.md
     - Add a Page: add_page.md
   - Understanding Salesforce: systems.md
+  - Board of Directors:
+    - Overview: board/overview.md
+    - Content: board/content.md
+    - Access Control: board/access.md
   - Mentoring:
       - Overview: mentoring/mentoring.md
       - Reports: mentoring/reports.md
@@ -32,7 +36,16 @@ nav:
               - Notifications: mentoring/email_system/notification_email.md
               - Weekly Emails: mentoring/email_system/weekly_email.md
           - Other Systems:
-              - Other Flows: mentoring/other_flows/other_flows.md
+              - Other Flows: mentoring/other_systems/other_flows.md
+              - Portal Upload: mentoring/other_systems/portal_upload.md
+  - Student Spotlight:
+    - Overview: student_spotlight/overview.md
+    - Yearly Setup: student_spotlight/setup.md
+    - Experience Site: student_spotlight/site.md
+    - Teacher Pre-Reg: student_spotlight/prereg.md
+    - Student Submission: student_spotlight/submission.md
+    - Judge Sign-Up: student_spotlight/judge-signup.md
+    - Judging Portal: student_spotlight/judge-portal.md
 
 theme:
   name: material
