@@ -1237,6 +1237,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Code
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1248,6 +1261,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#messagefilterscheduledjobcls" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageFilterScheduledJob.cls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1696,6 +1737,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#messagefilterscheduledjobcls" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageFilterScheduledJob.cls
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1711,6 +1769,134 @@
 
 
 <h1 id="flagging-code">Flagging Code</h1>
+<p>This Apex job automatically scans new mentoring messages to detect inappropriate content or risky files.<br />
+Every 15 minutes, Salesforce runs this scheduled job to look for new messages marked <strong>“Flag – New.”</strong><br />
+It checks three things:<br />
+1. Whether the message contains any banned words stored in the custom object <code>Filter_Terms__c</code>.<br />
+2. Whether the message includes a hyperlink.<br />
+3. Whether a file is attached that needs to be safely shared.  </p>
+<p>If a problem is found, the job flags the message by updating its status to <strong>“Flag – In Progress”</strong> and lists the reason in <code>Flag_Reason__c</code>.<br />
+If a file is attached, the code automatically creates a secure public link using Salesforce <code>ContentDistribution</code>.<br />
+Messages without issues are marked as <strong>“Pass.”</strong><br />
+This automation allows mentors’ and students’ messages to be screened without manual review while still protecting file privacy and message integrity.</p>
+<p>The scheduled jobs are a group of four, set to run every 15 minutes. </p>
+<ul>
+<li><a href="https://bestprep.my.salesforce-setup.com/ui/setup/apex/batch/ManageScheduledApexJobPage?retURL=%2F08e%3FretURL%3D%252Fsetup%252Fhome%26appLayout%3Dsetup%26tour%3D%26sfdcIFrameOrigin%3Dhttps%253A%252F%252Fbestprep.my.salesforce-setup.com%26sfdcIFrameHost%3Dweb%26nonce%3Db8458fec0e9653b8718fe6aa2be9443ab26ad4f33c2bff6c3885426dbdee5d87%26ltn_app_id%3D%26clc%3D1&amp;job_name=Mentoring+Message+Filter+00&amp;EXISTING_JOB_NAME=Mentoring+Message+Filter+00&amp;pid=08aRP00000dYbbX&amp;triggerId=08eRP00000dYNIR&amp;scheduleusing=1&amp;cronexp=0+0+*+*+*+%3F&amp;_CONFIRMATIONTOKEN=VmpFPSxNakF5TlMweE1DMHpNVlF4TWpvMU5qbzBNeTR3T0RaYSxPQzd0akhwWlNiOW03bW9DN2hQTTlZNlp1d1ozYjZPYmFlRElNZGZPSExrPSxZV1ZtT0dFeg%3D%3D"><code>Mentoring Message Filter 00</code></a></li>
+<li><a href="https://bestprep.my.salesforce-setup.com/ui/setup/apex/batch/ManageScheduledApexJobPage?retURL=%2F08e%3FretURL%3D%252Fsetup%252Fhome%26appLayout%3Dsetup%26tour%3D%26sfdcIFrameOrigin%3Dhttps%253A%252F%252Fbestprep.my.salesforce-setup.com%26sfdcIFrameHost%3Dweb%26nonce%3Db8458fec0e9653b8718fe6aa2be9443ab26ad4f33c2bff6c3885426dbdee5d87%26ltn_app_id%3D%26clc%3D1&amp;job_name=Mentoring+Message+Filter+15&amp;EXISTING_JOB_NAME=Mentoring+Message+Filter+15&amp;pid=08aRP00000dYbbY&amp;triggerId=08eRP00000dYNIS&amp;scheduleusing=1&amp;cronexp=0+15+*+*+*+%3F&amp;_CONFIRMATIONTOKEN=VmpFPSxNakF5TlMweE1DMHpNVlF4TWpvMU5qbzBNeTR4TVRGYSxWQWpoNklFa2ZrZ0xzSXpTWjhZX211X2JBbXRONlNEZ1NNSFdDMGVUZXQ0PSxZV1ZtT0dFeg%3D%3D"><code>Mentoring Message Filter 15</code></a></li>
+<li><a href="https://bestprep.my.salesforce-setup.com/ui/setup/apex/batch/ManageScheduledApexJobPage?retURL=%2F08e%3FretURL%3D%252Fsetup%252Fhome%26appLayout%3Dsetup%26tour%3D%26sfdcIFrameOrigin%3Dhttps%253A%252F%252Fbestprep.my.salesforce-setup.com%26sfdcIFrameHost%3Dweb%26nonce%3Db8458fec0e9653b8718fe6aa2be9443ab26ad4f33c2bff6c3885426dbdee5d87%26ltn_app_id%3D%26clc%3D1&amp;job_name=Mentoring+Message+Filter+30&amp;EXISTING_JOB_NAME=Mentoring+Message+Filter+30&amp;pid=08aRP00000dYbbZ&amp;triggerId=08eRP00000dYNIT&amp;scheduleusing=1&amp;cronexp=0+30+*+*+*+%3F&amp;_CONFIRMATIONTOKEN=VmpFPSxNakF5TlMweE1DMHpNVlF4TWpvMU5qbzBNeTR4TXpaYSxUR1ZPMHBZeVdLN0VOTTdWLV8zeEhsUHBvZU4xVkR2dnhYZFV4OWg3c0c0PSxZV1ZtT0dFeg%3D%3D"><code>Mentoring Message Filter 30</code></a></li>
+<li><a href="https://bestprep.my.salesforce-setup.com/ui/setup/apex/batch/ManageScheduledApexJobPage?retURL=%2F08e%3FretURL%3D%252Fsetup%252Fhome%26appLayout%3Dsetup%26tour%3D%26sfdcIFrameOrigin%3Dhttps%253A%252F%252Fbestprep.my.salesforce-setup.com%26sfdcIFrameHost%3Dweb%26nonce%3Db8458fec0e9653b8718fe6aa2be9443ab26ad4f33c2bff6c3885426dbdee5d87%26ltn_app_id%3D%26clc%3D1&amp;job_name=Mentoring+Message+Filter+45&amp;EXISTING_JOB_NAME=Mentoring+Message+Filter+45&amp;pid=08aRP00000dYbba&amp;triggerId=08eRP00000dYNIU&amp;scheduleusing=1&amp;cronexp=0+45+*+*+*+%3F&amp;_CONFIRMATIONTOKEN=VmpFPSxNakF5TlMweE1DMHpNVlF4TWpvMU5qbzBNeTR4TmpGYSxRYWUyVkZDV1NxZjBqOUtZYVdDYWxkRkE5bzc2aU9Sa0hHNDR4MS1aajhvPSxZV1ZtT0dFeg%3D%3D"><code>Mentoring Message Filter 45</code></a></li>
+</ul>
+<hr />
+<h2 id="messagefilterscheduledjobcls">MessageFilterScheduledJob.cls</h2>
+<div class="highlight"><pre><span></span><code><span class="n">global</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MessageFilterScheduledJob</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Schedulable</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="n">global</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">SchedulableContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Load all banned terms</span>
+<span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bannedWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Filter_Terms__c</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">[</span><span class="n">SELECT</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="n">FROM</span><span class="w"> </span><span class="n">Filter_Terms__c</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bannedWords</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">term</span><span class="p">.</span><span class="na">Name</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Load messages to process</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message__c</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="n">SELECT</span><span class="w"> </span><span class="n">Id</span><span class="p">,</span><span class="w"> </span><span class="n">Message__c</span><span class="p">,</span><span class="w"> </span><span class="n">Filter_Status__c</span><span class="p">,</span><span class="w"> </span><span class="n">Link_to_File_Attached__c</span><span class="p">,</span>
+<span class="w">                   </span><span class="p">(</span><span class="n">SELECT</span><span class="w"> </span><span class="n">ContentDocumentId</span><span class="w"> </span><span class="n">FROM</span><span class="w"> </span><span class="n">ContentDocumentLinks</span><span class="w"> </span><span class="n">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">FROM</span><span class="w"> </span><span class="n">Message__c</span>
+<span class="w">            </span><span class="n">WHERE</span><span class="w"> </span><span class="n">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">New</span><span class="err">&#39;</span>
+<span class="w">            </span><span class="n">LIMIT</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">        </span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message__c</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messagesToUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Message__c</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Message__c</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">messages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Processing</span><span class="w"> </span><span class="n">Message</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">Id</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">Message__c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">Message__c</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">&#39;&#39;</span><span class="p">;</span>
+
+
+<span class="w">            </span><span class="n">Boolean</span><span class="w"> </span><span class="n">hasBannedWord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">Boolean</span><span class="w"> </span><span class="n">hasLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="err">&#39;</span><span class="p">(</span><span class="o">?</span><span class="n">i</span><span class="p">).</span><span class="o">*</span><span class="p">(</span><span class="n">https</span><span class="o">?</span><span class="p">:</span><span class="c1">//|www\\.).*&#39;, original);</span>
+
+<span class="w">            </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">matchedWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bannedWords</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">original</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">word</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">hasBannedWord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">matchedWords</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">Boolean</span><span class="w"> </span><span class="n">hasAttachment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">Link_to_File_Attached__c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Attachment</span><span class="w"> </span><span class="n">Processing</span><span class="err">&#39;</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasAttachment</span><span class="p">)</span><span class="w"> </span><span class="n">reasons</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="err">&#39;</span><span class="n">File</span><span class="w"> </span><span class="n">Attached</span><span class="err">&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">matchedWords</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="n">reasons</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">matchedWords</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// Join and truncate to 255 characters max for the reason field</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">flagReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="n">reasons</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">flagReason</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">flagReason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flagReason</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">msg</span><span class="p">.</span><span class="na">Flag_Reason__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flagReason</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">// --- FILE HANDLING ---</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasAttachment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">msg</span><span class="p">.</span><span class="na">ContentDocumentLinks</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">Id</span><span class="w"> </span><span class="n">contentDocId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">ContentDocumentLinks</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">ContentDocumentId</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">ContentVersion</span><span class="w"> </span><span class="n">cv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
+<span class="w">                    </span><span class="n">SELECT</span><span class="w"> </span><span class="n">Id</span>
+<span class="w">                    </span><span class="n">FROM</span><span class="w"> </span><span class="n">ContentVersion</span>
+<span class="w">                    </span><span class="n">WHERE</span><span class="w"> </span><span class="n">ContentDocumentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">contentDocId</span>
+<span class="w">                    </span><span class="n">ORDER</span><span class="w"> </span><span class="n">BY</span><span class="w"> </span><span class="n">VersionNumber</span><span class="w"> </span><span class="n">DESC</span>
+<span class="w">                    </span><span class="n">LIMIT</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                </span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">                        </span><span class="n">ContentDistribution</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ContentDistribution</span><span class="p">();</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Mentoring</span><span class="w"> </span><span class="n">Program</span><span class="w"> </span><span class="n">Attachment</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">ContentVersionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cv</span><span class="p">.</span><span class="na">Id</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesAllowOriginalDownload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesAllowPDFDownload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesAllowViewInBrowser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesLinkLatestVersion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesNotifyOnVisit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">cd</span><span class="p">.</span><span class="na">PreferencesPasswordRequired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="w">                        </span><span class="n">insert</span><span class="w"> </span><span class="n">cd</span><span class="p">;</span>
+
+<span class="w">                        </span><span class="n">cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">SELECT</span><span class="w"> </span><span class="n">DistributionPublicUrl</span><span class="w"> </span><span class="n">FROM</span><span class="w"> </span><span class="n">ContentDistribution</span><span class="w"> </span><span class="n">WHERE</span><span class="w"> </span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">cd</span><span class="p">.</span><span class="na">Id</span><span class="o">]</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">msg</span><span class="p">.</span><span class="na">Link_to_File_Attached__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cd</span><span class="p">.</span><span class="na">DistributionPublicUrl</span><span class="p">;</span>
+<span class="w">                        </span><span class="n">msg</span><span class="p">.</span><span class="na">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">Progress</span><span class="err">&#39;</span><span class="p">;</span>
+
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">System</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="err">&#39;</span><span class="n">ContentDistribution</span><span class="w"> </span><span class="n">creation</span><span class="w"> </span><span class="n">failed</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+<span class="w">                        </span><span class="n">msg</span><span class="p">.</span><span class="na">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">Progress</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="err">&#39;</span><span class="n">No</span><span class="w"> </span><span class="n">ContentDocumentLink</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="na">Id</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">msg</span><span class="p">.</span><span class="na">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">Progress</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hasBannedWord</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">hasLink</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">msg</span><span class="p">.</span><span class="na">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Flag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">Progress</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">msg</span><span class="p">.</span><span class="na">Filter_Status__c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">Pass</span><span class="err">&#39;</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">messagesToUpdate</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+
+
+
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">messagesToUpdate</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">update</span><span class="w"> </span><span class="n">messagesToUpdate</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
