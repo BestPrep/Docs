@@ -31,7 +31,6 @@ nav:
           - Flagging System:
               - Overview: mentoring/flagging_system/flagging_system.md
               - Making Updates: mentoring/flagging_system/making_updates.md
-              - Code: mentoring/flagging_system/flagging_code.md
           - Email System:
               - Notifications: mentoring/email_system/notification_email.md
               - Weekly Emails: mentoring/email_system/weekly_email.md
