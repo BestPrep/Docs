@@ -1793,22 +1793,21 @@
 <p>When a message is submitted to our system in any way (via the portal or manually by a BestPrep staff member) it goes through the following process. </p>
 <div class="mermaid">
 flowchart TD
-    A[Message Created] --> B[Status = "Flag - New"]
-    B --> C{Scheduled Job Runs}
-    C --> D[Load Banned Terms and Message Text]
-    D --> E{Contains Banned Word or Link?}
-    E -->|Yes| F[Set Status = "Flag - In Progress"]
-    E -->|No| G{Attachment Present?}
-    G -->|Yes| H[Generate Secure File Link via ContentDistribution]
-    H --> I[Set Status = "Flag - In Progress"]
-    G -->|No| J[Set Status = "Pass"]
-    F --> K[Save Flag Reason (e.g., File Attached, Word Found)]
-    I --> K
-    J --> L[Message Approved and Visible]
-    K --> M[Flagged Message Awaiting Review]
-    M --> N[Admin or Staff Review]
-    N -->|Valid Message| J
-    N -->|Inappropriate| O[Message Removed or Escalated]
+    A[Message created] --> B[Status: Flag - New]
+    B --> C{Scheduled job runs}
+    C --> D[Load banned terms and message text]
+    D --> E{Banned word or link?}
+    E -- Yes --> F[Set status: Flag - In Progress]
+    E -- No --> G{Attachment present?}
+    G -- Yes --> H[Create ContentDistribution link]
+    H --> F
+    G -- No --> J[Set status: Pass]
+    F --> K[Save flag reason]
+    J --> L[Message approved and visible]
+    F --> M[Awaiting review]
+    M --> N{Reviewer decision}
+    N -- Valid --> J
+    N -- Inappropriate --> O[Remove or escalate]
     J --> P[End]
     O --> P[End]
 </div>
