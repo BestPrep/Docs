@@ -5,8 +5,10 @@ nav:
   - Home:
     - Start Here: index.md
     - Add a Page: add_page.md
-  - Understanding Salesforce: systems.md
-  - Board of Directors:
+  - Understanding Salesforce: 
+    - How It Works: systems.md
+    - Salesforce Contacts: contacts.md
+  - Board Portal:
     - Overview: board/overview.md
     - Content: board/content.md
     - Access Control: board/access.md
@@ -23,10 +25,12 @@ nav:
               - Overview: mentoring/student_portal/student_portal.md
               - Apex: mentoring/student_portal/student_apex.md
               - JavaScript: mentoring/student_portal/student_js.md
+              - HTML & CSS: mentoring/student_portal/student_web.md
           - Overview Portal:
               - Overview: mentoring/overview_portal/overview_portal.md
               - Apex: mentoring/overview_portal/overview_apex.md
               - JavaScript: mentoring/overview_portal/overview_js.md
+              - HTML & CSS: mentoring/overview_portal/overview_web.md
       - Systems:
           - Flagging System:
               - Overview: mentoring/flagging_system/flagging_system.md
@@ -45,6 +49,10 @@ nav:
     - Student Submission: student_spotlight/submission.md
     - Judge Sign-Up: student_spotlight/judge-signup.md
     - Judging Portal: student_spotlight/judge-portal.md
+  - Forms:
+    - Overview: forms/forms.md
+  - Flows:
+    - Overview: flows/flows.md
 
 theme:
   name: material
