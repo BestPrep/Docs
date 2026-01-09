@@ -24,7 +24,7 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 | Meet & Greet Reminder | [Scheduled 2 days prior to Meet & Greet](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | | |
 | Mentor Program Conclusion | [Scheduled for Assigned End Date](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | | |
 | Mentor Survey Reminder | [Scheduled for Assigned End Date if survey not completed](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | | |
-| Student Message Notification | Triggered by a new message being set to "Pass" | Send a notification to the mentor that their student wrote a new message | |
+| Student Message Notification | [Triggered by a new student message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Send a notification to the mentor that their student wrote a new message | |
 | **Triggered Mentor Emails** | | | |
 | Mentor Drop Notification (To Mentor) | Trigger via swap flow on case | Send to mentor to notify them that they have been dropped from the program | |
 | Student Drop Notification (To Mentor) | Trigger via swap flow on case | Send to a mentor to notify them that their student has been dropped from the program | |
@@ -34,8 +34,8 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 | Student Weekly Prompt | | Weekly prompt to students reminding them to write to their mentor | |
 | Student Reminder to Write | | Reminder for a student to write if they are 3-days overdue | |
 | Mentor Drop Notification | | Let a student know if their mentor has dropped out of the program and they are given a new mentor | |
-| Mentor Out-of-Office Notification | | Inform a student that their mentor is out of office if the student sends them a message during that time | |
-| Mentor Message Notification | | Inform a student that they have gotten a message from their mentor | |
+| Mentor Out-of-Office Notification | [Triggered by a new messsage being set to "Pass" while mentor is Out-of-Office](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that their mentor is out of office if the student sends them a message during that time | |
+| Mentor Message Notification | [Triggered by a new mentor message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that they have gotten a message from their mentor | |
 | Student Portal Link | | Used to send a student the link to their portal if they loose it | |
 | Student Survey Reminder | | Reminder for a student to complete their survey if they haven't 3 days after the final message | |
 
