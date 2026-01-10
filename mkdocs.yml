@@ -37,7 +37,6 @@ nav:
               - Making Updates: mentoring/flagging_system/making_updates.md
           - Email System:
               - Notifications: mentoring/email_system/notification_email.md
-              - Weekly Emails: mentoring/email_system/weekly_email.md
               - Email Templates: mentoring/email_system/email_templates.md
           - Other Systems:
               - Other Flows: mentoring/other_systems/other_flows.md
