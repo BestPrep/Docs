@@ -17,7 +17,7 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 | Mentoring - Teacher Handoff Notification (In-Person) | Record Triggered from Flow | When a teacher is moved from the bucket to a case and the case is set to assigned, this email is sent from their BPPP | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CSnwX2AT/view?queryScope=userFolders) |
 | Mentoring - Teacher Handoff Notification (Virtual) | Record Triggered from Flow | When a coordinator is moved from the bucket to a case and the case is set to assigned, this email is sent from their BPPP | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CT6UX2A1/view?queryScope=userFolders) |
 | **Scheduled Mentor Emails** |  |  |  |
-| Mentor Welcome Email (eMentors) | Scheduled ([on Assigned Start Date](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)) & User Triggerable for Entire Case or Single Connection | Mentor welcome email for mentors participating in eMentors connections | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQVfZ2AX/view?queryScope=userFolders) |
+| Mentor Welcome Email (eMentors) | Scheduled ([on Assigned Start Date](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)) & User Triggerable for [Entire Case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000o8yT2AQ/view) or Single Connection | Mentor welcome email for mentors participating in eMentors connections | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQVfZ2AX/view?queryScope=userFolders) |
 | Mentor Activity Prompt | [Scheduled on activity weeks for 6:30am from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | Reminds mentors of any virtual activity that is schedule for this week | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CGGt72AH/view?queryScope=userFolders) |
 | Mentor Reminder to Write | [Scheduled when mentor hasn't replied to student in more than 72 hours](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | An email used for both mentoring programs reminding a mentor that their message is due | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Cdvdp2AB/view?queryScope=userFolders) |
 | eMentors Mentor Gapfill | [Scheduled when student misses 2 consecutive messages & more than 72 hours past most recent assigned date](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)| This notification lets a mentor know that their student hasn't had a chance to write yet and gives them an opportunity to write a message instead | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Crg8f2AB/view) |
@@ -42,3 +42,21 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 
 
 ## Cloud Coach
+
+| **Name** | **Trigger** | **Description**  | **Template Link**  |
+| - | - | - | - |
+| **Setup Emails** | | | |
+| Company Welcome Email | Scheduled (1 week prior to assigned start date) | Send welcome email to all company coordinators in a parent case along with their portal access link | In-Progress |
+| Teacher Welcome Email | Scheduled (1 week prior to assigned start date) | Send welcome email to all teachers in a parent case along with their portal access link | In-Progress |
+| **Mentor Emails** | | | |
+| Mentor Welcome Email | Scheduled (on Assigned Start Date) & User Triggerable for Entire Case or Single Connection | Email welcoming mentor to Cloud Coach | In-Progress |
+| Mentor Prompt | Scheduled for 1 week prior to due date | Reminds mentor to write | In-Progress |
+| Mentor Gapfill Email | Logic TBD | Sent to mentor when student hasn't replied | In-Progress |
+| Mentor Reminder to Write | Auto sent if mentor hasn't written by day before due date | Reminds the mentor to write | In-Progress |
+| Mentor Survey | Sent on assigned end date | Send to mentor to remind them about the survey | In-Progress|
+| **Student Emails** | | | |
+| Student Pre-Survey | | | In-Progress |
+| Student Pre-Survey Reminder | | | In-Progress |
+| Student Weekly Prompt | | | In-Progress |
+| Student Gapfill | | | In-Progress |
+| Student Post-Survey | | | In-Progress |

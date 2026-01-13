@@ -48,7 +48,6 @@ All images in the mentoring email templates must be static direct URL type image
 
 ![Mentoring Email Template](../../images/mentoring/mentoring_email_template.jpg)
 
-You can view the notification emails below, or read about the [weekly emails here](weekly_email.md).
 
 - [Mentoring - New Student Message](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000AVhJ32AL/view?queryScope=userFolders)
 - [Mentoring - New Mentor Message](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000AVlUj2AL/view?queryScope=userFolders)
