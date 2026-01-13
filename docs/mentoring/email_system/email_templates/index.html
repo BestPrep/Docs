@@ -1526,6 +1526,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#drop-swap-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop &amp; Swap System
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2048,6 +2057,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#drop-swap-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drop &amp; Swap System
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2365,6 +2383,51 @@
 <td></td>
 <td></td>
 <td>In-Progress</td>
+</tr>
+</tbody>
+</table>
+<h2 id="drop-swap-system">Drop &amp; Swap System</h2>
+<p>The drop and swap system can be found on the case level view of any eMentors case or on the child-case level view of any Cloud Coach case. The tool allows a user to select an existing connection, indicate whether they want to swap the mentor or drop the student, and then allow the tool to send out all the necessary notifications. The Drop and Swap System runs from a screen flow with the api name <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Mentoring_Swap_Mentor_Student</a>.</p>
+<p><img alt="The Drop &amp; Swap System" src="../../../images/mentoring/swap-drop-system.png" style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" /></p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Trigger</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Template Link</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Student Drop Notification to Mentor</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered from Flow</a></td>
+<td>Notify a mentor that their student has been dropped from the program</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtxdF2AR/view?queryScope=userFolders">Link to Template</a></td>
+</tr>
+<tr>
+<td>Student Drop Notification</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered from Flow</a></td>
+<td>Notify a student that they have been dropped from the program</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtxVB2AZ/view?queryScope=userFolders">Link to Template</a></td>
+</tr>
+<tr>
+<td>Mentor Swap Notification to Student</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered from Flow</a></td>
+<td>Notification to student that they are getting a new mentor</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Ctw7h2AB/view?queryScope=userFolders">Link to Template</a></td>
+</tr>
+<tr>
+<td>Dropped Mentor Notification</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered from Flow</a></td>
+<td>Notification to Mentor when they have been dropped from the program</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtuvV2AR/view?queryScope=userFolders">Link to Template</a></td>
+</tr>
+<tr>
+<td>Mentor Swap Notification</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered from Flow</a></td>
+<td>Notification to new mentor when they are taking over a connection from a dropped mentor</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtvoL2AR/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 </tbody>
 </table>

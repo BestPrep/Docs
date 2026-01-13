@@ -60,3 +60,18 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 | Student Weekly Prompt | | | In-Progress |
 | Student Gapfill | | | In-Progress |
 | Student Post-Survey | | | In-Progress |
+
+
+## Drop & Swap System
+
+The drop and swap system can be found on the case level view of any eMentors case or on the child-case level view of any Cloud Coach case. The tool allows a user to select an existing connection, indicate whether they want to swap the mentor or drop the student, and then allow the tool to send out all the necessary notifications. The Drop and Swap System runs from a screen flow with the api name [Mentoring_Swap_Mentor_Student](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view).
+
+![The Drop & Swap System](../../images/mentoring/swap-drop-system.png){ style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" }
+
+| **Name** | **Trigger** | **Description**  | **Template Link**  |
+| - | - | - | - |
+| Student Drop Notification to Mentor | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notify a mentor that their student has been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtxdF2AR/view?queryScope=userFolders) |
+| Student Drop Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notify a student that they have been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtxVB2AZ/view?queryScope=userFolders) |
+| Mentor Swap Notification to Student | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to student that they are getting a new mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Ctw7h2AB/view?queryScope=userFolders) |
+| Dropped Mentor Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to Mentor when they have been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtuvV2AR/view?queryScope=userFolders) |
+| Mentor Swap Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to new mentor when they are taking over a connection from a dropped mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtvoL2AR/view?queryScope=userFolders) |
