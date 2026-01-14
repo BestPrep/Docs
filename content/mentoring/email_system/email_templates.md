@@ -66,6 +66,8 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 
 The drop and swap system can be found on the case level view of any eMentors case or on the child-case level view of any Cloud Coach case. The tool allows a user to select an existing connection, indicate whether they want to swap the mentor or drop the student, and then allow the tool to send out all the necessary notifications. The Drop and Swap System runs from a screen flow with the api name [Mentoring_Swap_Mentor_Student](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view).
 
+The drop and swap system will also allow users to choose what company coordinators and teachers they would like to be notified on the applicable notifications. 
+
 ![The Drop & Swap System](../../images/mentoring/swap-drop-system.png){ style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" }
 
 | **Name** | **Trigger** | **Description**  | **Template Link**  |
