@@ -11,7 +11,7 @@ All scheduled eMentors Student emails are controlled here:
 All scheduled Cloud Coach Student emails are controlled here: 
 
 
-## eMentors
+## **eMentors**
 
 | **Name** | **Trigger** | **Description**  | **Template Link**  |
 | - | - | - | - |
@@ -49,7 +49,7 @@ All scheduled Cloud Coach Student emails are controlled here:
 
 
 
-## Cloud Coach
+## **Cloud Coach**
 
 | **Name** | **Trigger** | **Description**  | **Template Link**  |
 | - | - | - | - |
@@ -76,8 +76,6 @@ The drop and swap system can be found on the case level view of any eMentors cas
 
 The drop and swap system will also allow users to choose what company coordinators and teachers they would like to be notified on the applicable notifications. 
 
-![The Drop & Swap System](../../images/mentoring/swap-drop-system.png){ style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" }
-
 | **Name** | **Trigger** | **Description**  | **Template Link**  |
 | - | - | - | - |
 | Student Drop Notification to Mentor | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notify a mentor that their student has been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtxdF2AR/view?queryScope=userFolders) |
@@ -85,3 +83,7 @@ The drop and swap system will also allow users to choose what company coordinato
 | Mentor Swap Notification to Student | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to student that they are getting a new mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Ctw7h2AB/view?queryScope=userFolders) |
 | Dropped Mentor Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to Mentor when they have been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtuvV2AR/view?queryScope=userFolders) |
 | Mentor Swap Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Notification to new mentor when they are taking over a connection from a dropped mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CtvoL2AR/view?queryScope=userFolders) |
+
+![The Drop & Swap System](../../images/mentoring/swap-drop-system.png){ style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" }
+
+![The eMentors Connection Handler](../../images/mentoring/ConnectionHandler.png){ style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" }
