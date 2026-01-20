@@ -2,6 +2,11 @@
 
 There are multiple reports available for staff use in the mentoring program. Linked below are some of the more commonly used reports. The most common are the flagged message reports. You can find a Salesforce report folder with all of our [mentoring reports by clicking this link.](https://bestprep.lightning.force.com/lightning/r/Folder/00lRP000004l6VtYAI/view?queryScope=userFoldersCreatedByMe)
 
+## Quick View Table
+| **Report Name** | **Link to Report** |
+| My Flagged Messages | [My Flagged Messages](https://bestprep.lightning.force.com/lightning/r/Report/00ORP000006JXsr2AG/view?queryScope=userFolders) |
+| All Flagged Messages | [All Flagged Messages](https://bestprep.lightning.force.com/lightning/r/Report/00ORP000006JYLt2AO/view?queryScope=userFolders) |
+
 ## Flagged Message Reports
 
 When a message is submitted, it passes through our filtering system, and then is assigned a flag status based on the flagged terms list, whether or not is has a file attached, or if any contact information is detected. 
