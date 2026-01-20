@@ -37,14 +37,14 @@ All scheduled Cloud Coach Student emails are controlled here:
 | Mentor Drop Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to mentor to notify them that they have been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtuvV2AR/view?queryScope=userFolders) |
 | Student Drop Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to a mentor to notify them that their student has been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtxdF2AR/view?queryScope=userFolders) |
 | Mentor Swap Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to a mentor to notify them that they have a new student from a mentor who dropped | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtvoL2AR/view?queryScope=userFolders) |
-| Mentor Portal Link | Triggered from connection via button | Send mentor an email with their portal link in it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSWP2A5/view?queryScope=userFolders) |
+| Mentor Portal Link | Triggered from connection via Action Button | Send mentor an email with their portal link in it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSWP2A5/view?queryScope=userFolders) |
 | **Student Emails** | | | |
 | Student Weekly Prompt | | Weekly prompt to students reminding them to write to their mentor | |
 | Student Reminder to Write | | Reminder for a student to write if they are 3-days overdue | |
 | Mentor Drop Notification | | Let a student know if their mentor has dropped out of the program and they are given a new mentor | |
 | Mentor Out-of-Office Notification | [Triggered by a new messsage being set to "Pass" while mentor is Out-of-Office](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that their mentor is out of office if the student sends them a message during that time | |
 | Mentor Message Notification | [Triggered by a new mentor message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that they have gotten a message from their mentor | |
-| Student Portal Link | | Used to send a student the link to their portal if they loose it | |
+| Student Portal Link | [Triggered from Action Button on Connection](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000o8Yf2AI/view) | Used to send a student the link to their portal if they loose it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSrN2AX/view?queryScope=userFolders) |
 | Student Survey Reminder | | Reminder for a student to complete their survey if they haven't 3 days after the final message | |
 
 
@@ -56,6 +56,7 @@ All scheduled Cloud Coach Student emails are controlled here:
 | **Setup Emails** | | | |
 | Company Welcome Email | Scheduled (1 week prior to assigned start date) | Send welcome email to all company coordinators in a parent case along with their portal access link | In-Progress |
 | Teacher Welcome Email | Scheduled (1 week prior to assigned start date) | Send welcome email to all teachers in a parent case along with their portal access link | In-Progress |
+| Coordinator Portal Link | Triggered via Action Button | Send chosen company coordinators a reminder of what their portal link is | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CTGWV2A5/view?queryScope=userFolders) |
 | **Mentor Emails** | | | |
 | Mentor Welcome Email | Scheduled (on Assigned Start Date) & User Triggerable for Entire Case or Single Connection | Email welcoming mentor to Cloud Coach | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CzKsX2AV/view) |
 | Mentor Prompt | Scheduled for 1 week prior to week assigned date | Reminds mentor to write | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000BRnXl2AL/view) |
