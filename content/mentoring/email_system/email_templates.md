@@ -2,6 +2,14 @@
 
 Email templates have been designed using BeeFree.io and are generated as inline HTML code, sent via the Lightning Email Template system.
 
+All scheduled eMentors Mentor emails are controlled here: [eMentors Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)
+
+All scheduled Cloud Coach Mentor emails are controlled here: [Cloud Coach Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001IGIf2AO/view)
+
+All scheduled eMentors Student emails are controlled here:
+
+All scheduled Cloud Coach Student emails are controlled here: 
+
 
 ## eMentors
 
@@ -26,9 +34,9 @@ Email templates have been designed using BeeFree.io and are generated as inline 
 | Mentor Survey Reminder | [Scheduled for 3 days after Assigned End Date if survey not completed](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view) | Reminds mentor to take post-connection survey | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Crfqv2AB/view?queryScope=userFolders) |
 | Student Message Notification | [Triggered by a new student message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Send a notification to the mentor that their student wrote a new message | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000AVhJ32AL/view?queryScope=userFolders) |
 | **Triggered Mentor Emails** | | | |
-| Mentor Drop Notification (To Mentor) | Trigger via swap flow on case | Send to mentor to notify them that they have been dropped from the program | In-Progress |
-| Student Drop Notification (To Mentor) | Trigger via swap flow on case | Send to a mentor to notify them that their student has been dropped from the program | In-Progress |
-| Mentor Swap Notification (To Mentor) | Trigger via swap flow on case | Send to a mentor to notify them that they have a new student from a mentor who dropped | In-Progress |
+| Mentor Drop Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to mentor to notify them that they have been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtuvV2AR/view?queryScope=userFolders) |
+| Student Drop Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to a mentor to notify them that their student has been dropped from the program | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtxdF2AR/view?queryScope=userFolders) |
+| Mentor Swap Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to a mentor to notify them that they have a new student from a mentor who dropped | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtvoL2AR/view?queryScope=userFolders) |
 | Mentor Portal Link | Triggered from connection via button | Send mentor an email with their portal link in it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSWP2A5/view?queryScope=userFolders) |
 | **Student Emails** | | | |
 | Student Weekly Prompt | | Weekly prompt to students reminding them to write to their mentor | |
