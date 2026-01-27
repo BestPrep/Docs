@@ -2084,10 +2084,9 @@
 
 <h1 id="email-templates">Email Templates</h1>
 <p>Email templates have been designed using BeeFree.io and are generated as inline HTML code, sent via the Lightning Email Template system.</p>
-<p>All scheduled eMentors Mentor emails are controlled here: <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view">eMentors Mentor Connection Handler</a></p>
-<p>All scheduled Cloud Coach Mentor emails are controlled here: <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001IGIf2AO/view">Cloud Coach Mentor Connection Handler</a></p>
-<p>All scheduled eMentors Student emails are controlled here:</p>
-<p>All scheduled Cloud Coach Student emails are controlled here: </p>
+<p>All scheduled eMentors Mentor emails are controlled here, daily at 6:30am: <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view">eMentors Mentor Connection Handler</a></p>
+<p>All scheduled Cloud Coach Mentor emails are controlled here, daily at 6:30am: <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001IGIf2AO/view">Cloud Coach Mentor Connection Handler</a></p>
+<p>All scheduled student emails are controlled here, daily at 7:30am: <a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view">Student Connection Handler</a></p>
 <h2 id="ementors"><strong>eMentors</strong></h2>
 <table>
 <thead>
@@ -2233,7 +2232,7 @@
 </tr>
 <tr>
 <td>Mentor Portal Link</td>
-<td>Triggered from connection via button</td>
+<td>Triggered from connection via Action Button</td>
 <td>Send mentor an email with their portal link in it</td>
 <td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSWP2A5/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
@@ -2245,45 +2244,45 @@
 </tr>
 <tr>
 <td>Student Weekly Prompt</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view">Scheduled from Flow weekly at 7:30am</a></td>
 <td>Weekly prompt to students reminding them to write to their mentor</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000BRXPl2AP/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td>Student Reminder to Write</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view">Scheduled from connection handler</a></td>
 <td>Reminder for a student to write if they are 3-days overdue</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000D4zbh2AB/view">Link to Template</a></td>
 </tr>
 <tr>
 <td>Mentor Drop Notification</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view">Triggered by drop/swap system</a></td>
 <td>Let a student know if their mentor has dropped out of the program and they are given a new mentor</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Ctw7h2AB/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td>Mentor Out-of-Office Notification</td>
 <td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view">Triggered by a new messsage being set to "Pass" while mentor is Out-of-Office</a></td>
 <td>Inform a student that their mentor is out of office if the student sends them a message during that time</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000C0RKf2AN/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td>Mentor Message Notification</td>
 <td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view">Triggered by a new mentor message being set to "Pass"</a></td>
 <td>Inform a student that they have gotten a message from their mentor</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000AVlUj2AL/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td>Student Portal Link</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000o8Yf2AI/view">Triggered from Action Button on Connection</a></td>
 <td>Used to send a student the link to their portal if they loose it</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSrN2AX/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td>Student Survey Reminder</td>
-<td></td>
-<td>Reminder for a student to complete their survey if they haven't 3 days after the final message</td>
-<td></td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view">Scheduled from Flow on Assigned End Date if survey isn't completed yet</a></td>
+<td>Reminder for a student to complete their survey if they haven't by the assigned end date</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000D4vl02AB/view">Link to Template</a></td>
 </tr>
 </tbody>
 </table>
@@ -2315,6 +2314,12 @@
 <td>Scheduled (1 week prior to assigned start date)</td>
 <td>Send welcome email to all teachers in a parent case along with their portal access link</td>
 <td>In-Progress</td>
+</tr>
+<tr>
+<td>Coordinator Portal Link</td>
+<td>Triggered via Action Button</td>
+<td>Send chosen company coordinators a reminder of what their portal link is</td>
+<td><a href="https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CTGWV2A5/view?queryScope=userFolders">Link to Template</a></td>
 </tr>
 <tr>
 <td><strong>Mentor Emails</strong></td>

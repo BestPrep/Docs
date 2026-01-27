@@ -2,13 +2,11 @@
 
 Email templates have been designed using BeeFree.io and are generated as inline HTML code, sent via the Lightning Email Template system.
 
-All scheduled eMentors Mentor emails are controlled here: [eMentors Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)
+All scheduled eMentors Mentor emails are controlled here, daily at 6:30am: [eMentors Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001BkIH2A0/view)
 
-All scheduled Cloud Coach Mentor emails are controlled here: [Cloud Coach Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001IGIf2AO/view)
+All scheduled Cloud Coach Mentor emails are controlled here, daily at 6:30am: [Cloud Coach Mentor Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000001IGIf2AO/view)
 
-All scheduled eMentors Student emails are controlled here:
-
-All scheduled Cloud Coach Student emails are controlled here: 
+All scheduled student emails are controlled here, daily at 7:30am: [Student Connection Handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view)
 
 
 ## **eMentors**
@@ -39,13 +37,13 @@ All scheduled Cloud Coach Student emails are controlled here:
 | Mentor Swap Notification (To Mentor) | Trigger via [swap flow on case](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Send to a mentor to notify them that they have a new student from a mentor who dropped | [Link to Template](https://bestprep.lightning.force.com/lightning/r/sObject/00XRP00000CtvoL2AR/view?queryScope=userFolders) |
 | Mentor Portal Link | Triggered from connection via Action Button | Send mentor an email with their portal link in it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSWP2A5/view?queryScope=userFolders) |
 | **Student Emails** | | | |
-| Student Weekly Prompt | | Weekly prompt to students reminding them to write to their mentor | |
-| Student Reminder to Write | | Reminder for a student to write if they are 3-days overdue | |
-| Mentor Drop Notification | | Let a student know if their mentor has dropped out of the program and they are given a new mentor | |
-| Mentor Out-of-Office Notification | [Triggered by a new messsage being set to "Pass" while mentor is Out-of-Office](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that their mentor is out of office if the student sends them a message during that time | |
-| Mentor Message Notification | [Triggered by a new mentor message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that they have gotten a message from their mentor | |
+| Student Weekly Prompt | [Scheduled from Flow weekly at 7:30am](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view) | Weekly prompt to students reminding them to write to their mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000BRXPl2AP/view?queryScope=userFolders) |
+| Student Reminder to Write | [Scheduled from connection handler](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view) | Reminder for a student to write if they are 3-days overdue | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000D4zbh2AB/view) |
+| Mentor Drop Notification | [Triggered by drop/swap system](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000dt7t2AA/view) | Let a student know if their mentor has dropped out of the program and they are given a new mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Ctw7h2AB/view?queryScope=userFolders) |
+| Mentor Out-of-Office Notification | [Triggered by a new messsage being set to "Pass" while mentor is Out-of-Office](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that their mentor is out of office if the student sends them a message during that time | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000C0RKf2AN/view?queryScope=userFolders) |
+| Mentor Message Notification | [Triggered by a new mentor message being set to "Pass"](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000005qfV2AQ/view) | Inform a student that they have gotten a message from their mentor | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000AVlUj2AL/view?queryScope=userFolders) |
 | Student Portal Link | [Triggered from Action Button on Connection](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000o8Yf2AI/view) | Used to send a student the link to their portal if they loose it | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CQSrN2AX/view?queryScope=userFolders) |
-| Student Survey Reminder | | Reminder for a student to complete their survey if they haven't 3 days after the final message | |
+| Student Survey Reminder | [Scheduled from Flow on Assigned End Date if survey isn't completed yet](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP0000006XMH2A2/view) | Reminder for a student to complete their survey if they haven't by the assigned end date | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000D4vl02AB/view) |
 
 
 
