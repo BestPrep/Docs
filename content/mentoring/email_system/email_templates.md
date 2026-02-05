@@ -59,8 +59,8 @@ All scheduled student emails are controlled here, daily at 7:30am: [Student Conn
 | Mentor Welcome Email | Scheduled (on Assigned Start Date) & User Triggerable for Entire Case or Single Connection | Email welcoming mentor to Cloud Coach | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CzKsX2AV/view) |
 | Mentor Prompt | Scheduled for 1 week prior to week assigned date | Reminds mentor to write | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000BRnXl2AL/view) |
 | Mentor Gapfill Email | Sends if student hasn't written for two weeks and mentor hasn't written for one week | Sent to mentor when student hasn't replied | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Crg8f2AB/view) |
-| Mentor Reminder to Write | Auto sent if mentor hasn't written by day before due date | Reminds the mentor to write | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CzKxO2AV/view) |
-| Mentor Survey | Sent on assigned end date | Send to mentor to remind them about the survey | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Crfqv2AB/view) |
+| Mentor Reminder to Write | Scheduled to send 4 days prior to assigned date if no mentor message for that week exists yet | Reminds the mentor to write | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000CzKxO2AV/view) |
+| Mentor Survey | Sends 3 days after assigned end date | Send to mentor to remind them about the survey | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000Crfqv2AB/view) |
 | **Student Emails** | | | |
 | Student Pre-Survey | | | In-Progress |
 | Student Pre-Survey Reminder | | | In-Progress |
