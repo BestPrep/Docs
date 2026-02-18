@@ -68,6 +68,17 @@ All scheduled student emails are controlled here, daily at 7:30am: [Student Conn
 | Student Gapfill | | | In-Progress |
 | Student Post-Survey | | | In-Progress |
 
+## New Connection System
+
+A new connection can be created from a case at any time. If in a child case or eMentors case, it will create the new connection directly in that case. However, if in a Cloud Coach Parent case, it will prompt the user to choose a child case. The contacts for the connection must have already been created, but once they are created in Salesforce, the user can select them from a search box, and the system will automatically create the BestPrep Program Participation records, the connection, and send out notification emails if the current date is greater than or equal to the first message date but not yet the assigned end date. 
+
+The user will be prompted to add any teachers and company coordinators as CC'd addresses if it is within program dates. 
+
+| **Name** | **Trigger**  | **Template Link**  |
+| - | - | - |
+| Mentor Notification | [Triggered from flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000xvjq2AA/view) | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000DNE2n2AH/view) | 
+| Student Notification | [Triggered from Flow](https://bestprep.lightning.force.com/lightning/r/FlowRecord/2aFRP000000xvjq2AA/view) | [Link to Template](https://bestprep.lightning.force.com/lightning/r/EmailTemplate/00XRP00000DNFID2A5/view) |
+
 
 ## Drop & Swap System
 
