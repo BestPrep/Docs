@@ -37,7 +37,7 @@ Each week cell displays one of four icons:
 | ❌ Red X | The message is overdue. Clicking opens a pre-filled email to the mentor or student. |
 | ⚠️ Yellow warning | The message is at risk — it is due soon but has not yet been written. Clicking opens a pre-filled reminder email. |
 | ••• Grey dots | The week is not yet due. No action needed. |
-| 🔘 Out of Office Symbole | The mentor is marked as Out of Office for this week (see below). |
+| 🔘 Out of Office Symbol | The mentor is marked as Out of Office for this week (see below). |
 
 ---
 
@@ -103,12 +103,21 @@ If you are viewing a case that belongs to another staff member (i.e., you used t
 
 ---
 
-## Downloading a CSV
-
+## Downloading Data
 
 ![An example of the options for selection](../../images/mentoring/overdue_app/Download.jpg)
 
-Clicking the **download icon** (top right of the app, only visible when data is loaded) gives you the option to download either all the connections on screen as separate files by case or as one combined file. The filename follows the format:
+Clicking the **download icon** (top right of the app, only visible when data is loaded) opens a menu with three options:
+
+1. **Download each case as a separate file** — exports one CSV per case currently on screen
+2. **Download all cases in a single file** — exports one combined CSV with an additional Case Subject column
+3. **Download name tags** — opens a configuration dialog to generate name badge CSVs with optional grouping (see below)
+
+### CSV Downloads
+
+The first two options export the connections currently visible on screen — if you have the **Only Show Overdue** filter active or a **Class Period** filter applied, only those rows will be exported. This makes the download immediately ready for tasks such as a mail merge in Outlook to all overdue mentors.
+
+The filename follows the format:
 
 ```
 CaseSubject_OverdueMentors.csv
@@ -116,8 +125,6 @@ CaseSubject_OverdueStudents.csv
 AllCases_OverdueMentors.csv
 AllCases_OverdueStudents.csv
 ```
-
-The file only includes the connections currently visible on screen — if you have the **Only Show Overdue** filter active or a **Class Period** filter applied, only those rows will be exported. This makes the download immediately ready for tasks such as a mail merge in Outlook to all overdue mentors.
 
 Depending on the active view, the columns in the exported file differ:
 
@@ -144,6 +151,60 @@ Week date columns are labeled with the week name and date (e.g. `Week 1 (01/16/2
 
 ---
 
+### Downloading Name Tags
+
+The **Download name tags** option is designed to help prepare name badges for in-person mentoring events. When selected, a dialog opens where you can configure the following:
+
+**Select Class Periods** — A list of checkboxes showing every Case–Class Period combination from the currently loaded data (e.g., "Fall 2026 Lincoln High - Period 1", "Fall 2026 Lincoln High - Period 2"). All are selected by default. Check or uncheck to choose which class periods to include.
+
+**Group Labels** — Choose how you would like connections to be divided into groups:
+
+| Option | Labels Used |
+|--------|-------------|
+| No Groups | No group column is included in the output |
+| Letters | A, B, C, D, E, F, G, H, I, J |
+| Numbers | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 |
+| Colors | Red, Green, Blue, Yellow, Purple, Orange, Pink, Beige, Lilac, Grey |
+
+**Number of Groups** — If a group type other than "No Groups" is selected, you can specify how many groups to create (1–10). Connections are distributed evenly across groups using round-robin assignment.
+
+![NameTags Function](../../images/mentoring/overdue_app/NameTags.jpg)
+
+Once configured, clicking **Download** generates two CSV files:
+
+**NameTags-Mentors.csv** — One row per mentor. Mentors are identified by their email address, so if the same mentor appears in multiple connections across the selected class periods, they are combined into a single row. If a mentor has two students, the second student is placed in the Student Two columns.
+
+| Column | Description |
+|--------|-------------|
+| Group | Group label (omitted if "No Groups" is selected) |
+| MFN | Mentor first name |
+| MLN | Mentor last name |
+| S1FN | Student one first name |
+| S1LN | Student one last name |
+| S2 | Shows "Student:" if the mentor has a second student, otherwise blank |
+| S2FN | Student two first name |
+| S2LN | Student two last name |
+
+**NameTags-Students.csv** — One row per student. Each student appears individually (even if their mentor has two students), and inherits the same group as their mentor so that mentor-student pairs are always in the same group.
+
+| Column | Description |
+|--------|-------------|
+| Group | Group label (omitted if "No Groups" is selected) |
+| SFN | Student first name |
+| SLN | Student last name |
+| MFN | Mentor first name |
+| MLN | Mentor last name |
+
+Both files are sorted alphabetically by last name. The mentor file sorts by mentor last name; the student file sorts by student last name.
+
+You can download the merge templates here:
+- [Mentor Name Badges (With Group)](../../images/mentoring/overdue_app/Mentor%20Name%20Badges%20(With%20Group).docx)
+- [Mentor Name Badges (Without Group)](../../images/mentoring/overdue_app/Mentor%20Name%20Badges%20(Without%20Group).docx)
+- [Student Name Badges (With Group)](../../images/mentoring/overdue_app/Student%20Name%20Badges%20(With%20Group).docx)
+- [Student Name Badges (Without Group)](../../images/mentoring/overdue_app/Student%20Name%20Badges%20(Without%20Group).docx)
+
+---
+
 ## Features Summary
 
 - **Mentor and Student views** — toggle between the two perspectives using the button group in the top left
@@ -154,8 +215,8 @@ Week date columns are labeled with the week name and date (e.g. `Week 1 (01/16/2
 - **Survey status columns** — at-a-glance checkboxes for mentor survey completion (mentor view) and student pre-survey and survey completion (student view)
 - **Case owner grouping** — the dropdown groups cases by staff member, with a "View All" option per person
 - **CSV download** — exports exactly what is on screen, with the option of either one file per case or combined, in a format ready for mail merge or reporting
+- **Name tag download** — generates two CSV files (one for mentors, one for students) with configurable grouping for name badge preparation at in-person events; mentors with two students are combined into a single row, and students always share their mentor's group
 - **Case header** — every table is labeled with both the case subject and the case owner's name so context is always clear when viewing multiple cases at once
-
 
 ## Code
 

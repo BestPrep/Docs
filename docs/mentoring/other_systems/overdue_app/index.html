@@ -1681,11 +1681,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downloading-a-csv" class="md-nav__link">
+  <a href="#downloading-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloading a CSV
+      Downloading Data
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Downloading Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Downloads
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloading-name-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading Name Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2171,11 +2195,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downloading-a-csv" class="md-nav__link">
+  <a href="#downloading-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloading a CSV
+      Downloading Data
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Downloading Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSV Downloads
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloading-name-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downloading Name Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2258,7 +2306,7 @@
 <td>The week is not yet due. No action needed.</td>
 </tr>
 <tr>
-<td>🔘 Out of Office Symbole</td>
+<td>🔘 Out of Office Symbol</td>
 <td>The mentor is marked as Out of Office for this week (see below).</td>
 </tr>
 </tbody>
@@ -2303,15 +2351,22 @@
 </ul>
 <p>If you are viewing a case that belongs to another staff member (i.e., you used the dropdown to load someone else's case), the case owner will automatically be <strong>CC'd</strong> on any email you send from within the app.</p>
 <hr />
-<h2 id="downloading-a-csv">Downloading a CSV</h2>
+<h2 id="downloading-data">Downloading Data</h2>
 <p><img alt="An example of the options for selection" src="../../../images/mentoring/overdue_app/Download.jpg" /></p>
-<p>Clicking the <strong>download icon</strong> (top right of the app, only visible when data is loaded) gives you the option to download either all the connections on screen as separate files by case or as one combined file. The filename follows the format:</p>
+<p>Clicking the <strong>download icon</strong> (top right of the app, only visible when data is loaded) opens a menu with three options:</p>
+<ol>
+<li><strong>Download each case as a separate file</strong> — exports one CSV per case currently on screen</li>
+<li><strong>Download all cases in a single file</strong> — exports one combined CSV with an additional Case Subject column</li>
+<li><strong>Download name tags</strong> — opens a configuration dialog to generate name badge CSVs with optional grouping (see below)</li>
+</ol>
+<h3 id="csv-downloads">CSV Downloads</h3>
+<p>The first two options export the connections currently visible on screen — if you have the <strong>Only Show Overdue</strong> filter active or a <strong>Class Period</strong> filter applied, only those rows will be exported. This makes the download immediately ready for tasks such as a mail merge in Outlook to all overdue mentors.</p>
+<p>The filename follows the format:</p>
 <div class="highlight"><pre><span></span><code>CaseSubject_OverdueMentors.csv
 CaseSubject_OverdueStudents.csv
 AllCases_OverdueMentors.csv
 AllCases_OverdueStudents.csv
 </code></pre></div>
-<p>The file only includes the connections currently visible on screen — if you have the <strong>Only Show Overdue</strong> filter active or a <strong>Class Period</strong> filter applied, only those rows will be exported. This makes the download immediately ready for tasks such as a mail merge in Outlook to all overdue mentors.</p>
 <p>Depending on the active view, the columns in the exported file differ:</p>
 <p><strong>Mentor CSV:</strong></p>
 <table>
@@ -2402,6 +2457,120 @@ AllCases_OverdueStudents.csv
 <p>Week date columns are labeled with the week name and date (e.g. <code>Week 1 (01/16/2026)</code>). A date value is only filled in for weeks where the message has been submitted; overdue or pending weeks are left blank.</p>
 <p><img alt="Excel Spreadsheet - CSV" src="../../../images/mentoring/overdue_app/Excel.jpg" /></p>
 <hr />
+<h3 id="downloading-name-tags">Downloading Name Tags</h3>
+<p>The <strong>Download name tags</strong> option is designed to help prepare name badges for in-person mentoring events. When selected, a dialog opens where you can configure the following:</p>
+<p><strong>Select Class Periods</strong> — A list of checkboxes showing every Case–Class Period combination from the currently loaded data (e.g., "Fall 2026 Lincoln High - Period 1", "Fall 2026 Lincoln High - Period 2"). All are selected by default. Check or uncheck to choose which class periods to include.</p>
+<p><strong>Group Labels</strong> — Choose how you would like connections to be divided into groups:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Labels Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No Groups</td>
+<td>No group column is included in the output</td>
+</tr>
+<tr>
+<td>Letters</td>
+<td>A, B, C, D, E, F, G, H, I, J</td>
+</tr>
+<tr>
+<td>Numbers</td>
+<td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</td>
+</tr>
+<tr>
+<td>Colors</td>
+<td>Red, Green, Blue, Yellow, Purple, Orange, Pink, Beige, Lilac, Grey</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Number of Groups</strong> — If a group type other than "No Groups" is selected, you can specify how many groups to create (1–10). Connections are distributed evenly across groups using round-robin assignment.</p>
+<p><img alt="NameTags Function" src="../../../images/mentoring/overdue_app/NameTags.jpg" /></p>
+<p>Once configured, clicking <strong>Download</strong> generates two CSV files:</p>
+<p><strong>NameTags-Mentors.csv</strong> — One row per mentor. Mentors are identified by their email address, so if the same mentor appears in multiple connections across the selected class periods, they are combined into a single row. If a mentor has two students, the second student is placed in the Student Two columns.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group</td>
+<td>Group label (omitted if "No Groups" is selected)</td>
+</tr>
+<tr>
+<td>MFN</td>
+<td>Mentor first name</td>
+</tr>
+<tr>
+<td>MLN</td>
+<td>Mentor last name</td>
+</tr>
+<tr>
+<td>S1FN</td>
+<td>Student one first name</td>
+</tr>
+<tr>
+<td>S1LN</td>
+<td>Student one last name</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Shows "Student:" if the mentor has a second student, otherwise blank</td>
+</tr>
+<tr>
+<td>S2FN</td>
+<td>Student two first name</td>
+</tr>
+<tr>
+<td>S2LN</td>
+<td>Student two last name</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NameTags-Students.csv</strong> — One row per student. Each student appears individually (even if their mentor has two students), and inherits the same group as their mentor so that mentor-student pairs are always in the same group.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group</td>
+<td>Group label (omitted if "No Groups" is selected)</td>
+</tr>
+<tr>
+<td>SFN</td>
+<td>Student first name</td>
+</tr>
+<tr>
+<td>SLN</td>
+<td>Student last name</td>
+</tr>
+<tr>
+<td>MFN</td>
+<td>Mentor first name</td>
+</tr>
+<tr>
+<td>MLN</td>
+<td>Mentor last name</td>
+</tr>
+</tbody>
+</table>
+<p>Both files are sorted alphabetically by last name. The mentor file sorts by mentor last name; the student file sorts by student last name.</p>
+<p>You can download the merge templates here:
+- <a href="../../../images/mentoring/overdue_app/Mentor%20Name%20Badges%20%28With%20Group%29.docx">Mentor Name Badges (With Group)</a>
+- <a href="../../../images/mentoring/overdue_app/Mentor%20Name%20Badges%20%28Without%20Group%29.docx">Mentor Name Badges (Without Group)</a>
+- <a href="../../../images/mentoring/overdue_app/Student%20Name%20Badges%20%28With%20Group%29.docx">Student Name Badges (With Group)</a>
+- <a href="../../../images/mentoring/overdue_app/Student%20Name%20Badges%20%28Without%20Group%29.docx">Student Name Badges (Without Group)</a></p>
+<hr />
 <h2 id="features-summary">Features Summary</h2>
 <ul>
 <li><strong>Mentor and Student views</strong> — toggle between the two perspectives using the button group in the top left</li>
@@ -2412,6 +2581,7 @@ AllCases_OverdueStudents.csv
 <li><strong>Survey status columns</strong> — at-a-glance checkboxes for mentor survey completion (mentor view) and student pre-survey and survey completion (student view)</li>
 <li><strong>Case owner grouping</strong> — the dropdown groups cases by staff member, with a "View All" option per person</li>
 <li><strong>CSV download</strong> — exports exactly what is on screen, with the option of either one file per case or combined, in a format ready for mail merge or reporting</li>
+<li><strong>Name tag download</strong> — generates two CSV files (one for mentors, one for students) with configurable grouping for name badge preparation at in-person events; mentors with two students are combined into a single row, and students always share their mentor's group</li>
 <li><strong>Case header</strong> — every table is labeled with both the case subject and the case owner's name so context is always clear when viewing multiple cases at once</li>
 </ul>
 <h2 id="code">Code</h2>
