@@ -451,7 +451,6 @@ Automatically shown on page load if `Case__r.Display_Announcement__c = true`, th
 | `BestPrepLoadingDots` | Animated loading spinner SVG |
 | `MessageSentAnimation` | Lottie JSON animation played after successful message submission |
 | `LottieJS` | Lottie animation runtime |
-| `MentoringEasterEgg` | Easter egg SVG triggered by typing "i am underpaid" in a message |
 | `Marked` | Markdown parser — used to render guiding question talking points |
 | `md5js` | MD5 hash library — used to generate Gravatar URLs |
 
