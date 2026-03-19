@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bestpreps-mentor-portal" class="md-skip">
+        <a href="#bestprep-mentor-portal-technical-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -919,27 +919,531 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#screenshots" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Screenshots
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mentor-info-modal" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Mentor Info Modal
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mentor-settings-modal" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      Mentor Settings Modal
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication &amp; Access Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication &amp; Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session Scoping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-connection__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Connection__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-case__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Case__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact-fields-written-by-vaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact Fields Written by VAF
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apex-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apex Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apex Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Constants
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getconnectiondataid-connectionid-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      getConnectionData(Id connectionId, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkmentormessageexistsid-connectionid-string-week-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      checkMentorMessageExists(Id connectionId, String week, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessagewithfileid-connectionid-string-week-string-messagebody-string-passkey-string-filename-string-base64filecontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessageWithFile(Id connectionId, String week, String messageBody, String passkey, String fileName, String base64FileContent)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutofofficeweeksid-connectionid-string-passkey-string-weeks-string-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateOutOfOfficeWeeks(Id connectionId, String passkey, String weeks, String track)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitvolunteeragreementid-connectionid-string-passkey-string-pronouns-string-ethnicity-string-jobtitle-string-preferredname-boolean-liabilityagreed-boolean-backgroundcheckagreed-boolean-photopermission-boolean-receivenewsletter" class="md-nav__link">
+    <span class="md-ellipsis">
+      submitVolunteerAgreement(Id connectionId, String passkey, String pronouns, String ethnicity, String jobTitle, String preferredName, Boolean liabilityAgreed, Boolean backgroundCheckAgreed, Boolean photoPermission, Boolean receiveNewsletter)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmentorconnectionsid-connectionid-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      getMentorConnections(Id connectionId, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lwc-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      LWC Component
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LWC Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-tracked-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Tracked Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-load-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Load Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fiscal-year-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fiscal Year Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draft-auto-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft Auto-Save
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portal-tabs-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Tabs &amp; Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Portal Tabs &amp; Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sidebar-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidebar Weeks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-submit-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Submit Redirect
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volunteer-agreement-form-vaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volunteer Agreement Form (VAF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Volunteer Agreement Form (VAF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pronouns-picklist-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pronouns Picklist Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Tabs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weekly Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weekly Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiding-question-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guiding Question Header
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Attachments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Filtering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#info-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connections-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#announcement-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Announcement Modal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Measures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-test-gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Test Gotchas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-deferred-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Limitations &amp; Deferred Work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Notes
     </span>
   </a>
   
@@ -2063,27 +2567,531 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#screenshots" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Screenshots
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mentor-info-modal" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Mentor Info Modal
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mentor-settings-modal" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      Mentor Settings Modal
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication &amp; Access Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication &amp; Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session Scoping
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-connection__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Connection__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-case__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Case__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message__c-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message__c Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact-fields-written-by-vaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contact Fields Written by VAF
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apex-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apex Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apex Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Constants
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getconnectiondataid-connectionid-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      getConnectionData(Id connectionId, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkmentormessageexistsid-connectionid-string-week-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      checkMentorMessageExists(Id connectionId, String week, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upsertmentormessagewithfileid-connectionid-string-week-string-messagebody-string-passkey-string-filename-string-base64filecontent" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsertMentorMessageWithFile(Id connectionId, String week, String messageBody, String passkey, String fileName, String base64FileContent)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateoutofofficeweeksid-connectionid-string-passkey-string-weeks-string-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateOutOfOfficeWeeks(Id connectionId, String passkey, String weeks, String track)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitvolunteeragreementid-connectionid-string-passkey-string-pronouns-string-ethnicity-string-jobtitle-string-preferredname-boolean-liabilityagreed-boolean-backgroundcheckagreed-boolean-photopermission-boolean-receivenewsletter" class="md-nav__link">
+    <span class="md-ellipsis">
+      submitVolunteerAgreement(Id connectionId, String passkey, String pronouns, String ethnicity, String jobTitle, String preferredName, Boolean liabilityAgreed, Boolean backgroundCheckAgreed, Boolean photoPermission, Boolean receiveNewsletter)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getmentorconnectionsid-connectionid-string-passkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      getMentorConnections(Id connectionId, String passkey)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lwc-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      LWC Component
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LWC Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-tracked-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Tracked Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-load-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Load Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fiscal-year-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fiscal Year Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draft-auto-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      Draft Auto-Save
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portal-tabs-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Tabs &amp; Navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Portal Tabs &amp; Navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sidebar-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sidebar Weeks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-submit-redirect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post-Submit Redirect
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volunteer-agreement-form-vaf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volunteer Agreement Form (VAF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Volunteer Agreement Form (VAF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pronouns-picklist-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pronouns Picklist Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Tabs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weekly-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weekly Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Weekly Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Logic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guiding-question-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guiding Question Header
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Attachments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Filtering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#info-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connections-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections Modal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#announcement-modal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Announcement Modal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Measures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Helper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-test-gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Test Gotchas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations-deferred-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Limitations &amp; Deferred Work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Notes
     </span>
   </a>
   
@@ -2105,20 +3113,1001 @@
 
 
 
-<h1 id="bestpreps-mentor-portal">BestPrep's Mentor Portal</h1>
-<p>The mentor portal (built by Tovin Sannes-Venhuizen, 2025) has become the new home for all of BestPrep's Mentor Tools. While it packs a lot of functionality, it has a few different components under the hood that allow it to function properly. </p>
+<h1 id="bestprep-mentor-portal-technical-documentation">BestPrep Mentor Portal — Technical Documentation</h1>
+<p><strong>Component:</strong> <code>mentorPortal</code> (LWC)<br />
+<strong>Apex Controller:</strong> <code>MentoringMentorPortal</code><br />
+<strong>Test Class:</strong> <code>MentoringMentorPortalTest</code><br />
+<strong>Hosted on:</strong> Salesforce Experience Site (<code>bestprep.my.site.com</code>)<br />
+<strong>Programs served:</strong> eMentors, Cloud Coach<br />
+<strong>Last updated:</strong> March 2026</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#authentication--access-control">Authentication &amp; Access Control</a></li>
+<li><a href="#data-model">Data Model</a></li>
+<li><a href="#apex-controller">Apex Controller</a></li>
+<li><a href="#lwc-component">LWC Component</a></li>
+<li><a href="#portal-tabs--navigation">Portal Tabs &amp; Navigation</a></li>
+<li><a href="#volunteer-agreement-form-vaf">Volunteer Agreement Form (VAF)</a></li>
+<li><a href="#weekly-messages">Weekly Messages</a></li>
+<li><a href="#modals">Modals</a></li>
+<li><a href="#security-measures">Security Measures</a></li>
+<li><a href="#static-resources">Static Resources</a></li>
+<li><a href="#test-class">Test Class</a></li>
+<li><a href="#known-limitations--deferred-work">Known Limitations &amp; Deferred Work</a></li>
+<li><a href="#deployment-notes">Deployment Notes</a></li>
+</ol>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The Mentor Portal is a public-facing LWC hosted on a Salesforce Experience Site. It gives mentors in the eMentors and Cloud Coach programs a single destination to:</p>
 <ul>
-<li><a href="../mentor_apex/">Apex Code</a></li>
-<li><a href="../mentor_js/">JavaScript</a></li>
-<li><a href="../mentor_web/">HTML &amp; CSS</a></li>
+<li>Complete their annual Volunteer Agreement Form (VAF)</li>
+<li>Read weekly guiding questions and write messages to their student</li>
+<li>View messages from their student</li>
+<li>Manage settings (out-of-office weeks, Cloud Coach track selection)</li>
+<li>Access event info, resources, and calendar links for the Meet &amp; Greet / Cloud Summit</li>
+<li>Switch between multiple connections if they mentor more than one student</li>
 </ul>
-<h3 id="screenshots">Screenshots</h3>
-<p><img alt="Mentoring Portal" src="../../../images/mentoring/mentor_portal.jpg" style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" /></p>
-<p>The portal comes complete with info and settings modals, to help the mentor have the best possible experience. </p>
-<h3 id="mentor-info-modal">Mentor Info Modal</h3>
-<p><img alt="Mentor Info Modal" src="../../../images/mentoring/mentor_info.jpg" style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" /></p>
-<h3 id="mentor-settings-modal">Mentor Settings Modal</h3>
-<p><img alt="Mentor Settings Modal" src="../../../images/mentoring/mentor_settings.jpg" style="display:block;margin:auto;max-width:100%;border:1px solid #ccc;border-radius:8px;box-shadow:0 0 8px rgba(0,0,0,0.1);" /></p>
+<p>Authentication is entirely stateless — no Salesforce login is required. Access is controlled by a <code>(connectionId, passkey)</code> pair passed in the URL, which is verified server-side on every Apex call.</p>
+<hr />
+<h2 id="architecture">Architecture</h2>
+<div class="highlight"><pre><span></span><code>Experience Site (guest user)
+    │
+    ├── mentorPortal (LWC)
+    │       ├── mentorPortal.html       — template
+    │       ├── mentorPortal.js         — controller
+    │       └── mentorPortal.css        — styles
+    │
+    └── MentoringMentorPortal (Apex, global without sharing)
+            ├── getConnectionData()
+            ├── checkMentorMessageExists()
+            ├── upsertMentorMessage()
+            ├── upsertMentorMessageWithFile()
+            ├── updateOutOfOfficeWeeks()
+            ├── submitVolunteerAgreement()
+            └── getMentorConnections()
+</code></pre></div>
+<p><strong>Supporting classes:</strong>
+- <code>FileAttachQueueable</code> — async job that updates <code>Link_to_File_Attached__c</code> after a <code>ContentVersion</code> finishes processing
+- <code>MessageFilterScheduledJob</code> — scheduled job that scans <code>Message__c</code> records with <code>Filter_Status__c = 'Flag - New'</code> and either passes or flags them for review</p>
+<hr />
+<h2 id="authentication-access-control">Authentication &amp; Access Control</h2>
+<h3 id="url-parameters">URL Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connectionId</code></td>
+<td>Salesforce ID of the <code>Connection__c</code> record</td>
+</tr>
+<tr>
+<td><code>passkey</code></td>
+<td>Auto-generated value stored in <code>Connection_Passkey__c</code> on the record</td>
+</tr>
+<tr>
+<td><code>targetWeek</code></td>
+<td>Optional. Short code for the week tab to open on load (<code>VAF</code>, <code>W1</code>–<code>W8</code>, <code>SV</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flow">Flow</h3>
+<ol>
+<li>The <code>@wire(CurrentPageReference)</code> handler in <code>mentorPortal.js</code> reads credentials from URL parameters <strong>or</strong> from <code>sessionStorage</code> (populated on first successful load).</li>
+<li><code>getConnectionData()</code> is called with the credentials. The Apex method verifies the passkey before returning any data.</li>
+<li>On success, credentials are written to <code>sessionStorage</code> (<code>bp_connId</code>, <code>bp_pw</code>) and stripped from the visible URL using <code>history.replaceState</code>.</li>
+<li>On reload, the URL is clean but <code>sessionStorage</code> provides the credentials — the portal loads normally.</li>
+<li>Three server-side conditions cause an <code>AuraHandledException</code> and show the access-denied screen:</li>
+<li>Wrong or missing passkey → generic error message</li>
+<li><code>Deactivate__c = true</code> on the connection → generic error message</li>
+<li>Today is more than 10 days after <code>Case__r.Assigned_End_Date__c</code> → "Portal access has ended" message</li>
+</ol>
+<h3 id="session-scoping">Session Scoping</h3>
+<p><code>sessionStorage</code> is tab-scoped and clears when the tab closes. A mentor opening a new tab from a bookmark will see the access-denied screen and must use their original link.</p>
+<hr />
+<h2 id="data-model">Data Model</h2>
+<h3 id="primary-objects">Primary Objects</h3>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Connection__c</code></td>
+<td>One record per mentor–student pair. The root object for the portal.</td>
+</tr>
+<tr>
+<td><code>Case__c</code></td>
+<td>The program case. Holds dates, event info, guiding questions, and announcement data.</td>
+</tr>
+<tr>
+<td><code>Message__c</code></td>
+<td>One record per week per role. Stores the message body, filter status, and file link.</td>
+</tr>
+<tr>
+<td><code>BestPrep_Program_Participation__c</code> (BPPP)</td>
+<td>Links a <code>Contact</code> to a <code>Case</code>. Used to resolve the mentor's Contact record.</td>
+</tr>
+<tr>
+<td><code>Contact</code></td>
+<td>The mentor's contact record. Stores VAF data, pronouns, ethnicity, job title, etc.</td>
+</tr>
+<tr>
+<td><code>eMentors_GQ__c</code></td>
+<td>Guiding question records linked to the Case via lookup fields <code>GQ_1__c</code>–<code>GQ_7__c</code> and <code>Activity_GQ__c</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-connection__c-fields">Key Connection__c Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Connection_Passkey__c</code></td>
+<td>Text</td>
+<td>Auto-generated auth token</td>
+</tr>
+<tr>
+<td><code>Connection_Type__c</code></td>
+<td>Picklist</td>
+<td><code>eMentors</code> or <code>Cloud Coach</code></td>
+</tr>
+<tr>
+<td><code>Deactivate__c</code></td>
+<td>Checkbox</td>
+<td>Blocks portal access when true</td>
+</tr>
+<tr>
+<td><code>CaseActive__c</code></td>
+<td>Formula (Text)</td>
+<td><code>TEXT(Case__r.Status)</code> — used in sibling connection queries</td>
+</tr>
+<tr>
+<td><code>Mentor_VAF_Date__c</code></td>
+<td>Formula (Date)</td>
+<td>Reflects <code>Contact.Volunteer_Agreement_Date__c</code></td>
+</tr>
+<tr>
+<td><code>Student_Familiar_Name__c</code></td>
+<td>Formula (Text)</td>
+<td>Read-only; used for display</td>
+</tr>
+<tr>
+<td><code>Mentor_Familiar_Name__c</code></td>
+<td>Formula (Text)</td>
+<td>Read-only; display name</td>
+</tr>
+<tr>
+<td><code>Mentor_Out_of_Office__c</code></td>
+<td>Text</td>
+<td>Semicolon-delimited list of weeks (e.g. <code>Week 2;Week 5</code>)</td>
+</tr>
+<tr>
+<td><code>Track__c</code></td>
+<td>Picklist</td>
+<td>Cloud Coach gateway prompt track</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-case__c-fields">Key Case__c Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Assigned_Start_Date__c</code></td>
+<td>Date</td>
+<td>Portal open date (currently not enforced — no start restriction)</td>
+</tr>
+<tr>
+<td><code>Assigned_End_Date__c</code></td>
+<td>Date</td>
+<td>Portal closes 10 days after this date</td>
+</tr>
+<tr>
+<td><code>CC_Date_1__c</code>–<code>CC_Date_8__c</code></td>
+<td>Date</td>
+<td>Due dates for each week's message</td>
+</tr>
+<tr>
+<td><code>Celebration_Date__c</code></td>
+<td>Date</td>
+<td>Meet &amp; Greet / Cloud Summit date</td>
+</tr>
+<tr>
+<td><code>Display_Announcement__c</code></td>
+<td>Checkbox</td>
+<td>Shows the announcement modal when true</td>
+</tr>
+<tr>
+<td><code>Announcement_Audience__c</code></td>
+<td>Picklist</td>
+<td><code>Mentors</code>, <code>Students</code>, or <code>Both</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="message__c-fields">Message__c Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Week__c</code></td>
+<td>Picklist</td>
+<td><code>VAF</code>, <code>Week 1</code>–<code>Week 8</code>, <code>Survey</code></td>
+</tr>
+<tr>
+<td><code>Role__c</code></td>
+<td>Picklist</td>
+<td><code>Mentor</code> or <code>Student</code></td>
+</tr>
+<tr>
+<td><code>Filter_Status__c</code></td>
+<td>Picklist</td>
+<td><code>Flag - New</code> → <code>Pass</code> or <code>Flag - In Progress</code></td>
+</tr>
+<tr>
+<td><code>Link_to_File_Attached__c</code></td>
+<td>Text</td>
+<td>Set to <code>'Attachment Processing'</code> by queueable, then replaced with the file URL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contact-fields-written-by-vaf">Contact Fields Written by VAF</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Familiar_Name__c</code></td>
+<td>Preferred name (max 30 chars)</td>
+</tr>
+<tr>
+<td><code>Title</code></td>
+<td>Job title (max 128 chars)</td>
+</tr>
+<tr>
+<td><code>Pronouns</code></td>
+<td>Standard Salesforce picklist field (not <code>Pronouns__c</code>)</td>
+</tr>
+<tr>
+<td><code>Ethnicity__c</code></td>
+<td>Custom picklist</td>
+</tr>
+<tr>
+<td><code>Volunteer_Agreement_Date__c</code></td>
+<td>Set to <code>Date.today()</code> when liability checkbox is checked</td>
+</tr>
+<tr>
+<td><code>Liability__c</code></td>
+<td>Checkbox — set to <code>true</code> when liability checkbox is checked</td>
+</tr>
+<tr>
+<td><code>Background_Check_Permission__c</code></td>
+<td>Checkbox</td>
+</tr>
+<tr>
+<td><code>Photo_permission__c</code></td>
+<td>Checkbox (optional)</td>
+</tr>
+<tr>
+<td><code>Receive_Newsletter__c</code></td>
+<td>Checkbox (optional)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="apex-controller">Apex Controller</h2>
+<p><strong>Class:</strong> <code>MentoringMentorPortal</code><br />
+<strong>Sharing:</strong> <code>global without sharing</code>  </p>
+<blockquote>
+<p>Note: <code>without sharing</code> is intentional given the guest user context and stateless passkey auth model. The primary access control is the server-side passkey check on every method. Revisiting <code>with sharing</code> is deferred to a future off-season.</p>
+</blockquote>
+<h3 id="validation-constants">Validation Constants</h3>
+<p>Declared at the top of the class and used across all write methods:</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VALID_WEEKS</code></td>
+<td><code>VAF</code>, <code>Week 1</code>–<code>Week 8</code>, <code>Survey</code></td>
+<td>Allowlist for <code>week</code> parameters</td>
+</tr>
+<tr>
+<td><code>VALID_TRACKS</code></td>
+<td><code>Track 1</code>, <code>Track 2</code>, <code>Track 3</code>, <code>Support Track</code></td>
+<td>Allowlist for <code>track</code> parameters</td>
+</tr>
+<tr>
+<td><code>MAX_MESSAGE_LENGTH</code></td>
+<td><code>15000</code></td>
+<td>Max characters in a message body</td>
+</tr>
+<tr>
+<td><code>PDF_BASE64_MAGIC</code></td>
+<td><code>'JVBER'</code></td>
+<td>PDF magic bytes in base64 — used to verify file type server-side</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="getconnectiondataid-connectionid-string-passkey"><code>getConnectionData(Id connectionId, String passkey)</code></h3>
+<p><strong>Returns:</strong> <code>Map&lt;String, Object&gt;</code></p>
+<p>The main data-loading method. Called once on page load. Performs three security checks before returning data:
+1. Passkey match
+2. <code>Deactivate__c</code> check
+3. Portal close date check (<code>Assigned_End_Date__c + 10 days</code>)</p>
+<p><strong>Return map keys:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connection</code></td>
+<td><code>Connection__c</code></td>
+<td>The full connection record with all queried fields</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>List&lt;Message__c&gt;</code></td>
+<td>All messages for this connection</td>
+</tr>
+<tr>
+<td><code>talkingPoints</code></td>
+<td><code>Map&lt;String, Object&gt;</code></td>
+<td>Keyed by <code>'Week 1'</code>–<code>'Week 8'</code>, each containing <code>dueDate</code>, <code>title</code>, <code>talkingPoints</code>, <code>enableAttachments</code>, <code>track1</code>–<code>track3</code>, <code>supportTrack</code></td>
+</tr>
+<tr>
+<td><code>companyCoordinators</code></td>
+<td><code>List&lt;String&gt;</code></td>
+<td>Email addresses of company coordinators for this case</td>
+</tr>
+<tr>
+<td><code>contactData</code></td>
+<td><code>Map&lt;String, Object&gt;</code></td>
+<td>VAF-related Contact fields: <code>title</code>, <code>preferredName</code>, <code>pronouns</code>, <code>ethnicity</code>, <code>liability</code>, <code>backgroundCheck</code>, <code>photoPermission</code>, <code>receiveNewsletter</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="checkmentormessageexistsid-connectionid-string-week-string-passkey"><code>checkMentorMessageExists(Id connectionId, String week, String passkey)</code></h3>
+<p><strong>Returns:</strong> <code>Boolean</code></p>
+<p>Pre-submit duplicate check. Called immediately before <code>upsertMentorMessageWithFile</code> to detect the case where a mentor has the portal open in two tabs and already submitted from the other tab. Returns <code>true</code> if a <code>Mentor</code> message already exists for that week.</p>
+<hr />
+<h3 id="upsertmentormessagewithfileid-connectionid-string-week-string-messagebody-string-passkey-string-filename-string-base64filecontent"><code>upsertMentorMessageWithFile(Id connectionId, String week, String messageBody, String passkey, String fileName, String base64FileContent)</code></h3>
+<p><strong>Returns:</strong> <code>void</code></p>
+<p>The primary message submission method. Validates week, message body (non-empty, max 15,000 chars), and file (PDF magic bytes, max ~4MB base64). Upserts the <code>Message__c</code> record, then if a file is provided: inserts a <code>ContentVersion</code>, links it to the message via <code>ContentDocumentLink</code>, and enqueues <code>FileAttachQueueable</code> to update <code>Link_to_File_Attached__c</code>.</p>
+<hr />
+<h3 id="updateoutofofficeweeksid-connectionid-string-passkey-string-weeks-string-track"><code>updateOutOfOfficeWeeks(Id connectionId, String passkey, String weeks, String track)</code></h3>
+<p><strong>Returns:</strong> <code>void</code></p>
+<p>Updates <code>Mentor_Out_of_Office__c</code> (semicolon-delimited string) and <code>Track__c</code> on the connection. Both parameters are validated against allowlists before the update.</p>
+<hr />
+<h3 id="submitvolunteeragreementid-connectionid-string-passkey-string-pronouns-string-ethnicity-string-jobtitle-string-preferredname-boolean-liabilityagreed-boolean-backgroundcheckagreed-boolean-photopermission-boolean-receivenewsletter"><code>submitVolunteerAgreement(Id connectionId, String passkey, String pronouns, String ethnicity, String jobTitle, String preferredName, Boolean liabilityAgreed, Boolean backgroundCheckAgreed, Boolean photoPermission, Boolean receiveNewsletter)</code></h3>
+<p><strong>Returns:</strong> <code>void</code></p>
+<p>Writes VAF data to the mentor's <code>Contact</code> record. Sets <code>Volunteer_Agreement_Date__c = Date.today()</code> and <code>Liability__c = true</code> only when <code>liabilityAgreed = true</code>. <code>preferredName</code> is only written if non-blank, and is truncated to 30 characters server-side.</p>
+<hr />
+<h3 id="getmentorconnectionsid-connectionid-string-passkey"><code>getMentorConnections(Id connectionId, String passkey)</code></h3>
+<p><strong>Returns:</strong> <code>List&lt;Map&lt;String, String&gt;&gt;</code></p>
+<p>Finds all other active connections belonging to the same mentor (identified via <code>Mentor_BPPP__r.Contact__c</code>). Filters to <code>Deactivate__c = false</code> and <code>CaseActive__c = 'Assigned'</code>, excludes the current connection. Returns a list of maps with keys <code>id</code>, <code>name</code>, <code>studentName</code>, and <code>passkey</code> — the passkey is included so the JS can navigate directly to another connection.</p>
+<hr />
+<h2 id="lwc-component">LWC Component</h2>
+<h3 id="files">Files</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mentorPortal.js</code></td>
+<td>Component controller — state, data loading, event handlers, getters</td>
+</tr>
+<tr>
+<td><code>mentorPortal.html</code></td>
+<td>Template — all UI markup</td>
+</tr>
+<tr>
+<td><code>mentorPortal.css</code></td>
+<td>Styles — layout, modals, tabs, status bubbles, etc.</td>
+</tr>
+<tr>
+<td><code>mentorPortal.js-meta.xml</code></td>
+<td>Component metadata</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-tracked-properties">Key Tracked Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connectionId</code></td>
+<td>—</td>
+<td>Salesforce ID of the current connection</td>
+</tr>
+<tr>
+<td><code>pw</code></td>
+<td>—</td>
+<td>Passkey (kept in memory; stripped from URL after auth)</td>
+</tr>
+<tr>
+<td><code>connectionData</code></td>
+<td><code>{}</code></td>
+<td>Full connection record returned by Apex</td>
+</tr>
+<tr>
+<td><code>allMessages</code></td>
+<td><code>[]</code></td>
+<td>All message records for the connection</td>
+</tr>
+<tr>
+<td><code>talkingPoints</code></td>
+<td><code>{}</code></td>
+<td>Guiding question data keyed by week</td>
+</tr>
+<tr>
+<td><code>selectedWeek</code></td>
+<td><code>'VAF'</code></td>
+<td>Currently active sidebar tab</td>
+</tr>
+<tr>
+<td><code>vafDateValid</code></td>
+<td><code>null</code></td>
+<td><code>true</code> if VAF completed in current fiscal year</td>
+</tr>
+<tr>
+<td><code>vafForm</code></td>
+<td>—</td>
+<td>Object holding all VAF form field values</td>
+</tr>
+<tr>
+<td><code>accessDenied</code></td>
+<td><code>true</code></td>
+<td>Flipped to <code>false</code> on successful auth</td>
+</tr>
+<tr>
+<td><code>accessDeniedReason</code></td>
+<td><code>''</code></td>
+<td><code>'expired'</code> or <code>''</code> (generic)</td>
+</tr>
+<tr>
+<td><code>activeTrainingTab</code></td>
+<td><code>'tab1'</code></td>
+<td>Active tab within the VAF training section</td>
+</tr>
+<tr>
+<td><code>trainTabViewed</code></td>
+<td><code>{tab1:false,...}</code></td>
+<td>Tracks whether each training tab has been viewed for 30+ seconds</td>
+</tr>
+<tr>
+<td><code>selectedBelief</code></td>
+<td>—</td>
+<td><em>(Removed)</em> Previously used for two-column belief layout</td>
+</tr>
+</tbody>
+</table>
+<h3 id="page-load-sequence">Page Load Sequence</h3>
+<ol>
+<li><code>@wire(CurrentPageReference)</code> fires → credentials read from URL params or <code>sessionStorage</code></li>
+<li><code>getConnectionData()</code> called → data populated into tracked properties</li>
+<li>Credentials saved to <code>sessionStorage</code>, stripped from URL</li>
+<li><code>vafForm</code> pre-populated from <code>contactData</code></li>
+<li><code>weekOptions</code> sidebar list built based on VAF status and available guiding questions</li>
+<li>Default week resolved (VAF if not completed, Week 1 if completed, or <code>targetWeek</code> param)</li>
+<li><code>renderedCallback</code> runs → Markdown rendered, sidebar highlighted, belief SVG injected on tab 1</li>
+</ol>
+<h3 id="fiscal-year-logic">Fiscal Year Logic</h3>
+<p>The VAF "completed" check uses a fiscal year window: September 1 of the current or previous calendar year through August 31 of the following year. A VAF date outside this window is treated as if no VAF exists for the current year.</p>
+<h3 id="draft-auto-save">Draft Auto-Save</h3>
+<p>Message drafts are saved to <code>localStorage</code> as the mentor types, keyed as <code>mentorDraft_{connectionId}_{week}</code>. Drafts are cleared on successful submission. This is separate from <code>sessionStorage</code> (which holds credentials) and persists across tab closes on the same device.</p>
+<hr />
+<h2 id="portal-tabs-navigation">Portal Tabs &amp; Navigation</h2>
+<h3 id="sidebar-weeks">Sidebar Weeks</h3>
+<p>The sidebar is built dynamically from <code>weekOptions</code>:</p>
+<ul>
+<li><strong>Waiver</strong> (internal value: <code>VAF</code>) — always shown first</li>
+<li><strong>Week 1–8</strong> — shown only if VAF is complete and a guiding question exists for that week</li>
+<li><strong>Survey</strong> — shown only if VAF is complete</li>
+</ul>
+<p>Weeks with overdue messages show a <code>⚠</code> warning icon with an em dash separator (e.g. <code>Week 3 — ⚠</code>).</p>
+<h3 id="short-codes">Short Codes</h3>
+<p>Used in the <code>targetWeek</code> URL parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Short Code</th>
+<th>Week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VAF</code></td>
+<td>Waiver tab</td>
+</tr>
+<tr>
+<td><code>W1</code>–<code>W8</code></td>
+<td>Week 1–Week 8</td>
+</tr>
+<tr>
+<td><code>SV</code></td>
+<td>Survey tab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-submit-redirect">Post-Submit Redirect</h3>
+<p>After a message is submitted successfully, the portal reloads to the same week. If the submitted week was the <strong>last available week</strong>, the portal redirects to the Survey tab instead.</p>
+<hr />
+<h2 id="volunteer-agreement-form-vaf">Volunteer Agreement Form (VAF)</h2>
+<p>The VAF is shown when <code>selectedWeek === 'VAF'</code>. It is read-only (<code>vaf-readonly</code> CSS class applied) if a valid VAF date exists for the current fiscal year. The form still allows interaction with the training tab section even when locked.</p>
+<h3 id="fields">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Field</th>
+<th>Required</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preferred Name</td>
+<td><code>Contact.Familiar_Name__c</code></td>
+<td>No</td>
+<td>Max 30 chars</td>
+</tr>
+<tr>
+<td>Job Title</td>
+<td><code>Contact.Title</code></td>
+<td>Yes</td>
+<td>Max 128 chars</td>
+</tr>
+<tr>
+<td>Pronouns</td>
+<td><code>Contact.Pronouns</code></td>
+<td>Yes</td>
+<td>Standard SF picklist</td>
+</tr>
+<tr>
+<td>Ethnicity</td>
+<td><code>Contact.Ethnicity__c</code></td>
+<td>Yes</td>
+<td>Custom picklist</td>
+</tr>
+<tr>
+<td>Volunteer Agreement</td>
+<td><code>Contact.Liability__c</code> + <code>Volunteer_Agreement_Date__c</code></td>
+<td>Yes</td>
+<td>Combined checkbox</td>
+</tr>
+<tr>
+<td>Background Check</td>
+<td><code>Contact.Background_Check_Permission__c</code></td>
+<td>Yes</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Photo Permission</td>
+<td><code>Contact.Photo_permission__c</code></td>
+<td>No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Newsletter</td>
+<td><code>Contact.Receive_Newsletter__c</code></td>
+<td>No</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pronouns-picklist-values">Pronouns Picklist Values</h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>API Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>He/Him</td>
+<td><code>He/Him</code></td>
+</tr>
+<tr>
+<td>She/Her</td>
+<td><code>She/Her</code></td>
+</tr>
+<tr>
+<td>They/Them</td>
+<td><code>They/Them</code></td>
+</tr>
+<tr>
+<td>He/They</td>
+<td><code>He/They</code></td>
+</tr>
+<tr>
+<td>She/They</td>
+<td><code>She/They</code></td>
+</tr>
+<tr>
+<td>Other / Prefer Not to Share</td>
+<td><code>Not Listed</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="training-tabs">Training Tabs</h3>
+<p>The VAF includes a three-tab training section before the agreement checkboxes:</p>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>Content</th>
+<th>Turns Green After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Belief Statements</td>
+<td>Animated SVG hexagon graphic of BestPrep's six belief statements</td>
+<td>30 seconds</td>
+</tr>
+<tr>
+<td>Volunteer Training</td>
+<td>Embedded YouTube training video (eMentors or Cloud Coach, based on connection type)</td>
+<td>30 seconds</td>
+</tr>
+<tr>
+<td>Cultural Humility</td>
+<td>Embedded YouTube cultural humility video</td>
+<td>30 seconds</td>
+</tr>
+</tbody>
+</table>
+<p>The 30-second timer is purely visual. Tabs are always clickable, including when the form is locked.</p>
+<p>The belief graphic is a <code>lwc:dom="manual"</code> SVG rendered via <code>_buildBeliefSvg()</code> — six flat-top hexagons in BestPrep brand colors arranged around a center "BestPrep Believes" label. The SVG uses hover animations (scale + drop-shadow) driven by CSS in an injected <code>&lt;style&gt;</code> block.</p>
+<hr />
+<h2 id="weekly-messages">Weekly Messages</h2>
+<h3 id="write-logic">Write Logic</h3>
+<p><strong>eMentors:</strong>
+- Mentor can write if the student has written (and their message passed the filter), OR if 9 days have passed since the due date with no student message.</p>
+<p><strong>Cloud Coach:</strong>
+- Mentor can write starting 7 days before the due date.</p>
+<p>In both cases, if the mentor has already written a message for that week, the form is hidden and the existing message is displayed.</p>
+<h3 id="guiding-question-header">Guiding Question Header</h3>
+<p>Each week shows a single-line header in the format <code>Week X — Title (Track)</code> with a colored status bubble on the right:</p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blue</td>
+<td>eMentors — student hasn't written yet</td>
+</tr>
+<tr>
+<td>Yellow</td>
+<td>eMentors student wrote but mentor hasn't replied; or Cloud Coach message not yet written</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>Mentor has replied / written</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Overdue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-attachments">File Attachments</h3>
+<p>If <code>Enable_Attachments__c</code> is true on the guiding question record, a PDF upload input appears. Validation:
+- Client-side: file type must be <code>application/pdf</code>, max 4MB
+- Server-side: base64 must start with <code>JVBER</code> (PDF magic bytes), encoded size must be under 5.5MB</p>
+<h3 id="message-filtering">Message Filtering</h3>
+<p>All submitted messages are created with <code>Filter_Status__c = 'Flag - New'</code>. The <code>MessageFilterScheduledJob</code> (runs on a schedule) scans these records and either sets them to <code>Pass</code> (clean) or <code>Flag - In Progress</code> (contains banned terms, URLs, or attached files). Only <code>Pass</code> messages are shown to the other party.</p>
+<hr />
+<h2 id="modals">Modals</h2>
+<h3 id="info-modal">Info Modal</h3>
+<p>Opened via the <code>ℹ</code> button in the top-right corner. Displays:
+- Event date and time (Meet &amp; Greet or Cloud Summit)
+- "Add to Calendar" dropdown with Google Calendar, Microsoft Outlook, and .ics download
+- Links to Mentor Resources and Training Video
+- "Contact BestPrep" mailto link (to: <code>mentoring@bestprep.org</code>, cc: <code>helpdesk@bestprep.org</code>, subject includes the connection ID)</p>
+<p>The .ics download uses a hidden <code>&lt;a data-id="icsDownload"&gt;</code> element in the template (driven by <code>handleDownloadIcs()</code>) rather than <code>URL.createObjectURL</code>, which is blocked by Lightning Web Security.</p>
+<h3 id="settings-modal">Settings Modal</h3>
+<p>Opened via the <code>⚙</code> button. Allows the mentor to:
+- View their name, company, and email (with Gravatar / logo.dev profile image)
+- Set out-of-office weeks (shown as checkboxes)
+- Select a Cloud Coach gateway prompt track (Cloud Coach connections only)
+- Report an error (opens a pre-filled mailto to the BestPrep coordinator)</p>
+<h3 id="connections-modal">Connections Modal</h3>
+<p>Opened via the <code>change_owner</code> icon button. Queries all other active connections (<code>Deactivate__c = false</code>, <code>CaseActive__c = 'Assigned'</code>) for the same mentor contact. Clicking a connection navigates to it by reloading with the new connection's credentials.</p>
+<h3 id="announcement-modal">Announcement Modal</h3>
+<p>Automatically shown on page load if <code>Case__r.Display_Announcement__c = true</code>, the audience is <code>Mentors</code> or <code>Both</code>, and the announcement hasn't expired (<code>Announcement_End__c</code>). Rendered via <code>&lt;lightning-formatted-rich-text&gt;</code>.</p>
+<hr />
+<h2 id="security-measures">Security Measures</h2>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passkey auth</td>
+<td>Every Apex method verifies <code>Connection_Passkey__c</code> before doing anything</td>
+</tr>
+<tr>
+<td>URL credential stripping</td>
+<td><code>history.replaceState</code> removes <code>connectionId</code> and <code>passkey</code> from the address bar after auth</td>
+</tr>
+<tr>
+<td>Session credential storage</td>
+<td><code>sessionStorage</code> (tab-scoped) stores credentials for reload support</td>
+</tr>
+<tr>
+<td>Message length limit</td>
+<td>15,000 characters enforced server-side</td>
+</tr>
+<tr>
+<td>Week/track allowlists</td>
+<td><code>VALID_WEEKS</code> and <code>VALID_TRACKS</code> sets validated on all write methods</td>
+</tr>
+<tr>
+<td>File type validation</td>
+<td>Client: MIME type check. Server: base64 magic bytes (<code>JVBER</code>)</td>
+</tr>
+<tr>
+<td>File size limit</td>
+<td>Client: 4MB. Server: 5.5MB encoded</td>
+</tr>
+<tr>
+<td>Input sanitization</td>
+<td>Client-side allowlist sanitizer strips all non-whitelisted HTML tags and dangerous attributes/hrefs before submission</td>
+</tr>
+<tr>
+<td>Portal close window</td>
+<td>Server enforces close 10 days after <code>Assigned_End_Date__c</code></td>
+</tr>
+<tr>
+<td>Duplicate-tab guard</td>
+<td><code>checkMentorMessageExists()</code> called before <code>upsertMentorMessageWithFile()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="static-resources">Static Resources</h2>
+<table>
+<thead>
+<tr>
+<th>Resource Name</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BestPrepLogo</code></td>
+<td>Logo displayed in the header and mobile sidebar</td>
+</tr>
+<tr>
+<td><code>BestPrepLoadingDots</code></td>
+<td>Animated loading spinner SVG</td>
+</tr>
+<tr>
+<td><code>MessageSentAnimation</code></td>
+<td>Lottie JSON animation played after successful message submission</td>
+</tr>
+<tr>
+<td><code>LottieJS</code></td>
+<td>Lottie animation runtime</td>
+</tr>
+<tr>
+<td><code>MentoringEasterEgg</code></td>
+<td>Easter egg SVG triggered by typing "i am underpaid" in a message</td>
+</tr>
+<tr>
+<td><code>Marked</code></td>
+<td>Markdown parser — used to render guiding question talking points</td>
+</tr>
+<tr>
+<td><code>md5js</code></td>
+<td>MD5 hash library — used to generate Gravatar URLs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="test-class">Test Class</h2>
+<p><strong>Class:</strong> <code>MentoringMentorPortalTest</code><br />
+<strong>Total test methods:</strong> 18</p>
+<h3 id="helper">Helper</h3>
+<p><code>createTestConnection()</code> — inserts a <code>Contact</code>, <code>Case</code>, <code>BestPrep_Program_Participation__c</code>, and <code>Connection__c</code> and returns the connection with its auto-generated passkey.</p>
+<h3 id="test-methods">Test Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>testGetConnectionData</code></td>
+<td>Happy path; asserts all five return map keys including <code>contactData</code></td>
+</tr>
+<tr>
+<td><code>testUpsertMentorMessage</code></td>
+<td>Basic message insert</td>
+</tr>
+<tr>
+<td><code>testUpsertMentorMessageWithFile</code></td>
+<td>File upload path; asserts <code>ContentDocumentLink</code> and <code>ContentVersion</code> with title <code>file.pdf</code></td>
+</tr>
+<tr>
+<td><code>testFileAttachQueueable</code></td>
+<td>Asserts <code>Link_to_File_Attached__c</code> set to <code>'Attachment Processing'</code></td>
+</tr>
+<tr>
+<td><code>testSubmitVolunteerAgreement_AllRequired</code></td>
+<td>All required fields written correctly including <code>Familiar_Name__c</code></td>
+</tr>
+<tr>
+<td><code>testSubmitVolunteerAgreement_OptionalFieldsChecked</code></td>
+<td>Photo permission and newsletter saved when opted in</td>
+</tr>
+<tr>
+<td><code>testSubmitVolunteerAgreement_LiabilityFalseDoesNotSetVafDate</code></td>
+<td>VAF date not set when liability checkbox unchecked</td>
+</tr>
+<tr>
+<td><code>testSubmitVolunteerAgreement_InvalidPasskey</code></td>
+<td><code>AuraHandledException</code> thrown on bad passkey</td>
+</tr>
+<tr>
+<td><code>testMessageFilterScheduledJob</code></td>
+<td>End-to-end: flagged message moves to <code>Flag - In Progress</code>, clean message moves to <code>Pass</code>; running user given an email to satisfy the Process Builder</td>
+</tr>
+<tr>
+<td><code>testUpdateOutOfOfficeWeeks</code></td>
+<td>Out-of-office string and track saved correctly</td>
+</tr>
+<tr>
+<td><code>testCheckMentorMessageExists_NoMessage</code></td>
+<td>Returns <code>false</code> when no message exists</td>
+</tr>
+<tr>
+<td><code>testCheckMentorMessageExists_MessageExists</code></td>
+<td>Returns <code>true</code> when message exists for that week</td>
+</tr>
+<tr>
+<td><code>testCheckMentorMessageExists_WrongWeek</code></td>
+<td>Returns <code>false</code> when message exists for a different week</td>
+</tr>
+<tr>
+<td><code>testCheckMentorMessageExists_InvalidPasskey</code></td>
+<td><code>AuraHandledException</code> thrown</td>
+</tr>
+<tr>
+<td><code>testGetMentorConnections_NoSiblings</code></td>
+<td>Returns empty list when no other connections</td>
+</tr>
+<tr>
+<td><code>testGetMentorConnections_WithSiblings</code></td>
+<td>Returns one sibling with correct <code>id</code> and <code>passkey</code></td>
+</tr>
+<tr>
+<td><code>testGetMentorConnections_ExcludesDeactivated</code></td>
+<td>Deactivated sibling not returned</td>
+</tr>
+<tr>
+<td><code>testGetMentorConnections_InvalidPasskey</code></td>
+<td><code>AuraHandledException</code> thrown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="known-test-gotchas">Known Test Gotchas</h3>
+<ul>
+<li><code>CaseActive__c</code> is a formula (<code>TEXT(Case__r.Status)</code>) — tests set <code>Case.Status = 'Assigned'</code> rather than writing <code>CaseActive__c</code> directly.</li>
+<li><code>Student_Familiar_Name__c</code> and other formula fields on <code>Connection__c</code> are not writable in tests.</li>
+<li><code>testMessageFilterScheduledJob</code> must set an email on the running test user via <code>System.runAs(me)</code> before creating data, because the <code>Mentoring - Notify Case Owner of Flagged Message</code> Process Builder sends a template email to the Case owner.</li>
+<li>PDF file blobs in tests must start with <code>'%PDF-'</code> (e.g. <code>Blob.valueOf('%PDF-1.0 test content')</code>) so the base64 starts with <code>'JVBER'</code> and passes server-side validation.</li>
+</ul>
+<hr />
+<h2 id="known-limitations-deferred-work">Known Limitations &amp; Deferred Work</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>global without sharing</code></td>
+<td>Intentional given guest user context. Low risk given consistent passkey auth and scoped SOQL. Revisit after season ends if desired.</td>
+</tr>
+<tr>
+<td><code>logo.dev</code> API token in JS</td>
+<td>Token <code>pk_ND5fuI1FS7G0KwfKwLuDnw</code> is client-visible. Low monetary exposure. Could be moved to Custom Metadata.</td>
+</tr>
+<tr>
+<td><code>marked.parse()</code> → <code>innerHTML</code></td>
+<td>GQ markdown is parsed and written directly to the DOM. Mitigated by trust in admin-only content editors, but no DOMPurify sanitizer is applied.</td>
+</tr>
+<tr>
+<td>Training video hosting</td>
+<td>YouTube videos may be blocked at some corporate sites. Vimeo is the recommended alternative for the next hosting review — bandwidth at ~2,000 mentors/year makes WordPress self-hosting impractical.</td>
+</tr>
+<tr>
+<td>Rate limiting</td>
+<td>No Salesforce-native rate limiting on <code>@AuraEnabled</code> endpoints. Passkey requirement makes brute force impractical.</td>
+</tr>
+<tr>
+<td>Draft storage on shared devices</td>
+<td><code>localStorage</code> drafts persist across browser sessions on shared computers. Low risk in practice.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="deployment-notes">Deployment Notes</h2>
+<ul>
+<li>All files live in the <code>mentorPortal</code> LWC bundle: <code>mentorPortal.html</code>, <code>mentorPortal.js</code>, <code>mentorPortal.css</code>, <code>mentorPortal.js-meta.xml</code></li>
+<li>The Apex class (<code>MentoringMentorPortal</code>) and test class (<code>MentoringMentorPortalTest</code>) deploy together</li>
+<li>The component is added to an Experience Site page — guest user profile must have read access to <code>Connection__c</code>, <code>Case__c</code>, <code>Message__c</code>, <code>BestPrep_Program_Participation__c</code>, and <code>eMentors_GQ__c</code>, and write access to <code>Message__c</code> and <code>Contact</code></li>
+<li>The <code>mentorPortalDev</code> LWC (not documented here) is the development copy — always test changes there before deploying to <code>mentorPortal</code></li>
+<li>Mid-season deployments should be made with caution — avoid structural changes to auth, VAF, or message submission during active program seasons (~September through May)</li>
+</ul>
 
 
 
